@@ -63,7 +63,12 @@
     "url": "git+https://github.com/angelicab7/legal-hackaton-agrosuper-2020"
   },
   "author": "Angelica Bonilla",
-  "contributors": ["Angelica Bonilla", "Catalina Jara Lira", "Samantha Moreno", "Karla Guaita"],
+  "contributors": [
+    "Angelica Bonilla",
+    "Catalina Jara Lira",
+    "Samantha Moreno",
+    "Karla Guaita"
+  ],
   "license": "ISC",
   "browserslist": "> 1%, last 2 versions",
   "bugs": {
