@@ -15,7 +15,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Card>
+    <Card className="w100">
       <CardContent>
         <Typography
           variant="h3"
@@ -46,7 +46,7 @@ const LoginForm = () => {
             className="margin-b-one"
           />
           <Box display="flex" justifyContent="center">
-            <Button variant="contained" color="secondary" type="submit">
+            <Button variant="contained" color="Primary" type="submit">
               Iniciar sesión
             </Button>
           </Box>
