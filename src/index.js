@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './styles/material-ui-theme';
 // import firebase from 'firebase/app';
@@ -24,10 +24,12 @@ const firebaseConfig = {
 const app = (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <>
-        <CssBaseline />
-        <App />
-      </>
+      <StylesProvider injectFirst>
+        <>
+          <CssBaseline />
+          <App />
+        </>
+      </StylesProvider>
     </ThemeProvider>
   </BrowserRouter>
 );
