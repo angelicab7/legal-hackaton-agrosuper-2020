@@ -1,18 +1,12 @@
-import React, { Fragment, useState } from 'react';
-import { FormControl } from '@material-ui/core/FormControl';
-import { InputLabel } from '@material-ui/core/InputLabel';
-
+import React from 'react';
+import { Container, FormControl, InputLabel } from '@material-ui/core';
 
 const ContractorsForm = () => {
-
-    return
-    <Container>
-        <FormControl>
-            <InputLabel htmlFor=''> Razón Social </InputLabel>
-        </FormControl>
-    </Container>
-
+  <Container>
+    <FormControl>
+      <InputLabel htmlFor=""> Razón Social </InputLabel>
+    </FormControl>
+  </Container>;
 };
-
 
 export default ContractorsForm;
