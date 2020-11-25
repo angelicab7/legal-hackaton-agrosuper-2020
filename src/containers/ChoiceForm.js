@@ -8,6 +8,9 @@ import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
+import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
+import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
+import logo from '../assets/images/logo-header.svg';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 
 const ChoicesForm = () => {
@@ -55,6 +58,14 @@ const ChoicesForm = () => {
               <Route
                 path="/preguntas/otras"
                 render={() => <RegulationsForm />}
+              />
+              <Route
+                path="/preguntas/serviciosyfaltas"
+                component={ServicesFaults}
+              />
+              <Route
+                path="/preguntas/plazoytarifas"
+                component={PlazoTarifa}
               />
             </Switch>
           </CardContent>
