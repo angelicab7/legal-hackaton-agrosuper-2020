@@ -9,6 +9,7 @@ import { Route, Switch } from 'react-router-dom';
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
 import logo from '../assets/images/logo-header.svg';
+import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 
 const ChoicesForm = () => (
   <div className="home-container">
@@ -29,6 +30,10 @@ const ChoicesForm = () => (
               <Route
                 path="/preguntas/dependencia"
                 component={DependencySelector}
+              />
+              <Route
+                path="/preguntas/otras"
+                render={() => <RegulationsForm />}
               />
             </Switch>
           </CardContent>
