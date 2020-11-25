@@ -6,10 +6,10 @@ import Button from '@material-ui/core/Button';
 // import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
 
-import logo from '../assets/images/logo-header-white.svg';
+import logo from '../assets/images/logo-header.svg';
 
 const NavBar = () => (
-  <AppBar position="static" color="secondary">
+  <AppBar position="static" color="transparent">
     <Toolbar>
       {/**
         <IconButton edge="start" color="inherit" aria-label="menu">
