@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
@@ -18,6 +19,7 @@ const ChoicesForm = () => {
     push('/'); // Change this by the route of the next set of questions
   };
 
+  // eslint-disable-next-line no-console
   console.log(answers);
 
   return (
@@ -44,6 +46,10 @@ const ChoicesForm = () => {
                       onNext={onNextDependencySelector}
                     />
                   )}
+                />
+                <Route
+                  path="/preguntas/contratistas"
+                  render={() => <ContractorsForm />}
                 />
               </Switch>
             </CardContent>

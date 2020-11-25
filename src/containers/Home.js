@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import LoginForm from '../components/LoginForm/LoginForm';
 import logo from '../assets/images/logo-header.svg';
+// import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 
 const Home = () => (
   <div className="home-container">
@@ -19,6 +20,7 @@ const Home = () => (
         </Box>
         <LoginForm />
       </Box>
+      {/* <ContractorsForm /> */}
     </Container>
   </div>
 );
