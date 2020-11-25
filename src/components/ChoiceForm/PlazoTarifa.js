@@ -213,10 +213,20 @@ const PlazoTarifa = () => {
           alignItems="center"
           className="margin-t-two"
         >
-          <Button variant="contained" color="secondary" type="submit">
+          <Button
+            href="/preguntas/serviciosyfaltas"
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
             Volver
           </Button>
-          <Button variant="contained" color="primary" type="submit">
+          <Button
+            href="/preguntas/otras"
+            variant="contained"
+            color="primary"
+            type="submit"
+          >
             Siguiente
           </Button>
         </Box>
