@@ -27,165 +27,155 @@ const PlazoTarifa = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputLabel id="demo-simple-select-label">
-            Plazo de los Servicios:
+          Plazo de los Servicios:
         </InputLabel>
         <div className="plazos">
-            <div className="boxOne">
-                <TextField
-                    id="date"
-                    label="Inicio"
-                    type="date"
-                    variant="outlined"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    className="datePicker"
-                />
-            </div>
-            <div className="boxOne">
-                <TextField
-                    id="date"
-                    label="Fin"
-                    type="date"
-                    variant="outlined"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    className="datePicker"
-                />
-            </div>
+          <div className="boxOne">
+            <TextField
+              id="date"
+              label="Inicio"
+              type="date"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              className="datePicker"
+            />
+          </div>
+          <div className="boxOne">
+            <TextField
+              id="date"
+              label="Fin"
+              type="date"
+              variant="outlined"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              className="datePicker"
+            />
+          </div>
         </div>
         <div className="renovacion">
-            <div className="boxTwo">
-                <TextField
-                    name="Renovacion"
-                    label="Renovación"
-                    variant="outlined"
-                    inputRef={register}
-                    required
-                    fullWidth
-                    className="test"
-                />
-            </div>
-            <div className="boxTwo">
-                <FormControl variant="outlined" className="typeFault" required>
-                    <InputLabel id="tipoFalta">
-                        Término anticipado
-                    </InputLabel>
-                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                        <MenuItem value={true}>Si</MenuItem>
-                        <MenuItem value={false}>No</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
+          <div className="boxTwo">
+            <TextField
+              name="Renovacion"
+              label="Renovación"
+              variant="outlined"
+              inputRef={register}
+              required
+              fullWidth
+              className="test"
+            />
+          </div>
+          <div className="boxTwo">
+            <FormControl variant="outlined" className="typeFault" required>
+              <InputLabel id="tipoFalta">Término anticipado</InputLabel>
+              <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                <MenuItem value>Si</MenuItem>
+                <MenuItem value={false}>No</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
         </div>
         <InputLabel id="demo-simple-select-label">
-            ¿Contratista requiere hacer inversiones?
+          ¿Contratista requiere hacer inversiones?
         </InputLabel>
         <div className="renovacion">
-            <div className="boxTwo">
-                <FormControl variant="outlined" className="typeFault" required>
-                    <InputLabel id="tipoFalta">
-                        Si/No
-                    </InputLabel>
-                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                        <MenuItem value={true}>Si</MenuItem>
-                        <MenuItem value={false}>No</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <div className="boxTwo">
-                <TextField
-                    name="Cuales"
-                    label="¿Cuáles?"
-                    variant="outlined"
-                    inputRef={register}
-                    required
-                    fullWidth
-                    className="test"
-                />
-            </div>
-            <div className="boxTwo">
-                <TextField
-                    name="Monto"
-                    label="Monto"
-                    variant="outlined"
-                    inputRef={register}
-                    type="number"
-                    required
-                    fullWidth
-                    className="test"
-                />
-            </div>
+          <div className="boxTwo">
+            <FormControl variant="outlined" className="typeFault" required>
+              <InputLabel id="tipoFalta">Si/No</InputLabel>
+              <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                <MenuItem value>Si</MenuItem>
+                <MenuItem value={false}>No</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <div className="boxTwo">
+            <TextField
+              name="Cuales"
+              label="¿Cuáles?"
+              variant="outlined"
+              inputRef={register}
+              required
+              fullWidth
+              className="test"
+            />
+          </div>
+          <div className="boxTwo">
+            <TextField
+              name="Monto"
+              label="Monto"
+              variant="outlined"
+              inputRef={register}
+              type="number"
+              required
+              fullWidth
+              className="test"
+            />
+          </div>
         </div>
-        <InputLabel id="demo-simple-select-label">
-            Reajuste:
-        </InputLabel>
+        <InputLabel id="demo-simple-select-label">Reajuste:</InputLabel>
         <div className="renovacion">
-            <div className="boxTwo">
+          <div className="boxTwo">
             {/* <InputLabel id="tipoFalta">
                         Si/No
                     </InputLabel> */}
-                <FormControl variant="outlined" className="typeFault" required>
-                    <InputLabel id="tipoFalta">
-                        Si/No
-                    </InputLabel>
-                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                        <MenuItem value={true}>Si</MenuItem>
-                        <MenuItem value={false}>No</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
-            <div className="boxTwo">
-                <TextField
-                    name="IPC/USD/otro"
-                    label="¿IPC/USD/otro?"
-                    variant="outlined"
-                    inputRef={register}
-                    required
-                    fullWidth
-                    className="test"
-                />
-            </div>
-            <div className="boxTwo">
-                <FormControl variant="outlined" className="typeFault" required>
-                    <InputLabel id="tipoFalta">
-                        Periodicidad del reajuste
-                    </InputLabel>
-                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                        <MenuItem value={'Anual'}>Anual</MenuItem>
-                        <MenuItem value={'Semestral'}>Semestral</MenuItem>
-                        <MenuItem value={'Cuatrimestral'}>Cuatrimestral</MenuItem>
-                        <MenuItem value={'Otro'}>Otro</MenuItem>
-                    </Select>
-                </FormControl>
-            </div>
+            <FormControl variant="outlined" className="typeFault" required>
+              <InputLabel id="tipoFalta">Si/No</InputLabel>
+              <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                <MenuItem value>Si</MenuItem>
+                <MenuItem value={false}>No</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <div className="boxTwo">
+            <TextField
+              name="IPC/USD/otro"
+              label="¿IPC/USD/otro?"
+              variant="outlined"
+              inputRef={register}
+              required
+              fullWidth
+              className="test"
+            />
+          </div>
+          <div className="boxTwo">
+            <FormControl variant="outlined" className="typeFault" required>
+              <InputLabel id="tipoFalta">Periodicidad del reajuste</InputLabel>
+              <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                <MenuItem value="Anual">Anual</MenuItem>
+                <MenuItem value="Semestral">Semestral</MenuItem>
+                <MenuItem value="Cuatrimestral">Cuatrimestral</MenuItem>
+                <MenuItem value="Otro">Otro</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
         </div>
         <InputLabel id="demo-simple-select-label">
-                Forma y oportunidad del pago:
+          Forma y oportunidad del pago:
         </InputLabel>
         <div className="boxTwo">
-            <FormControl variant="outlined" className="typeFault" required>
-                {/* <InputLabel id="tipoFalta">
+          <FormControl variant="outlined" className="typeFault" required>
+            {/* <InputLabel id="tipoFalta">
                     
                 </InputLabel> */}
-                <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                    <MenuItem value={'Mensual'}>Mensual</MenuItem>
-                    <MenuItem value={'Por hito'}>Por hito</MenuItem>
-                </Select>
-            </FormControl>
+            <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+              <MenuItem value="Menual">Mensual</MenuItem>
+              <MenuItem value="Por hito">Por hito</MenuItem>
+            </Select>
+          </FormControl>
         </div>
         <div className="bottomBox">
-            <div className="boxOne">
-                <Button variant="contained" color="secondary" type="submit">
-                    Volver
-                </Button>
-            </div>
-            <div className="boxOne">
-                <Button variant="contained" color="primary" type="submit">
-                    Siguiente
-                </Button>
-            </div>
+          <div className="boxOne">
+            <Button variant="contained" color="secondary" type="submit">
+              Volver
+            </Button>
+          </div>
+          <div className="boxOne">
+            <Button variant="contained" color="primary" type="submit">
+              Siguiente
+            </Button>
+          </div>
         </div>
       </form>
     </>
