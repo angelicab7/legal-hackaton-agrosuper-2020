@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
-
+import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
 import logo from '../assets/images/logo-header.svg';
@@ -50,6 +50,11 @@ const ChoicesForm = () => {
                 <Route
                   path="/preguntas/contratistas"
                   render={() => <ContractorsForm />}
+                />
+
+                <Route
+                  path="/preguntas/servicios"
+                  render={() => <ServicesForm />}
                 />
               </Switch>
             </CardContent>
