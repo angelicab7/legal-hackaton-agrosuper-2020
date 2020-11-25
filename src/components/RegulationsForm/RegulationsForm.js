@@ -232,12 +232,7 @@ const RegulationsForm = () => {
             </Button>
           </Box>
           <Box display="flex" justifyContent="center" className="w100">
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-            // onClick={handleOpen}
-            >
+            <Button variant="contained" color="primary" type="submit">
               Siguiente
             </Button>
           </Box>
