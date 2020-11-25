@@ -8,7 +8,7 @@ import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
-import logo from '../assets/images/logo-header.svg';
+import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 
 const ChoicesForm = () => {
   const [answers, setAnswers] = useState({});
@@ -23,45 +23,44 @@ const ChoicesForm = () => {
   console.log(answers);
 
   return (
-    <div className="home-container">
-      <Container>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          className="centered-box-container"
-        >
-          <Box display="flex" justifyContent="center" className="margin-b-two">
-            <img src={logo} alt="AgroSuper Logo" />
-          </Box>
-          <Card className="w100" variant="outlined">
-            <CardContent>
-              <Switch>
-                <Route
-                  path="/preguntas/dependencia"
-                  render={(props) => (
-                    <DependencySelector
-                      {...props}
-                      onNext={onNextDependencySelector}
-                    />
-                  )}
-                />
-                <Route
-                  path="/preguntas/contratistas"
-                  render={() => <ContractorsForm />}
-                />
+    <Container className="d-flex grow-1">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        className="centered-box-container grow-1"
+      >
+        <Card className="w100" variant="outlined">
+          <CardContent>
+            <Switch>
+              <Route
+                path="/preguntas/dependencia"
+                render={(props) => (
+                  <DependencySelector
+                    {...props}
+                    onNext={onNextDependencySelector}
+                  />
+                )}
+              />
+              <Route
+                path="/preguntas/contratistas"
+                render={() => <ContractorsForm />}
+              />
 
-                <Route
-                  path="/preguntas/servicios"
-                  render={() => <ServicesForm />}
-                />
-              </Switch>
-            </CardContent>
-          </Card>
-        </Box>
-      </Container>
-    </div>
+              <Route
+                path="/preguntas/servicios"
+                render={() => <ServicesForm />}
+              />
+              <Route
+                path="/preguntas/otras"
+                render={() => <RegulationsForm />}
+              />
+            </Switch>
+          </CardContent>
+        </Card>
+      </Box>
+    </Container>
   );
 };
 

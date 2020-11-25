@@ -7,10 +7,12 @@
 // 3. Components
 @import 'components/grid';
 
-// 4. Pages
+// 4. Layout
+@import 'layout/app';
+
+// 5. Pages
 @import 'pages/home';
 
-
-// 5. Utils
+// 6. Utils
 @import 'base/helpers';
 @import 'utils/utils';

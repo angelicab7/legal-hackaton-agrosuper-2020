@@ -6,12 +6,36 @@ import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
+import firebase from 'firebase/app';
+
+import microsoftSignInLogo from '../../assets/images/ms-symbollockup_signin_dark.svg';
+
+const provider = new firebase.auth.OAuthProvider('microsoft.com');
+
+provider.setCustomParameters({
+  client_id: '78185eca-50e2-4cf9-98e0-4b24232d7323',
+  response_type: 'code',
+  tenant: '5070d741-c777-43a7-b7cf-46e42f66723e',
+  redirect_uri: 'http://localhost:8080',
+});
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+  };
+
+  const onMicrosoftLogin = () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log('LOGIN', result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -48,6 +72,14 @@ const LoginForm = () => {
           <Box display="flex" justifyContent="center">
             <Button variant="contained" color="primary" type="submit">
               Iniciar sesión
+            </Button>
+          </Box>
+          <Box display="flex" justifyContent="center">
+            <Button type="button" onClick={onMicrosoftLogin}>
+              <img
+                src={microsoftSignInLogo}
+                alt="Iniciar sesión con Microsoft"
+              />
             </Button>
           </Box>
         </form>
