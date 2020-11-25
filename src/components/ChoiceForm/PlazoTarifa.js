@@ -123,6 +123,9 @@ const PlazoTarifa = () => {
         </InputLabel>
         <div className="renovacion">
             <div className="boxTwo">
+            {/* <InputLabel id="tipoFalta">
+                        Si/No
+                    </InputLabel> */}
                 <FormControl variant="outlined" className="typeFault" required>
                     <InputLabel id="tipoFalta">
                         Si/No
@@ -163,9 +166,9 @@ const PlazoTarifa = () => {
         </InputLabel>
         <div className="boxTwo">
             <FormControl variant="outlined" className="typeFault" required>
-                <InputLabel id="tipoFalta">
-                    Forma y oportunidad del pago:
-                </InputLabel>
+                {/* <InputLabel id="tipoFalta">
+                    
+                </InputLabel> */}
                 <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
                     <MenuItem value={'Mensual'}>Mensual</MenuItem>
                     <MenuItem value={'Por hito'}>Por hito</MenuItem>

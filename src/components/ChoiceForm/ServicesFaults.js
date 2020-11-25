@@ -62,7 +62,7 @@ const ServicesFaults = () => {
         </FormControl>
         <TextField
             name="Monto de la multa"
-            label="monto de la multa"
+            label="monto de la multa (UF)"
             variant="outlined"
             type="number"
             inputRef={register}
