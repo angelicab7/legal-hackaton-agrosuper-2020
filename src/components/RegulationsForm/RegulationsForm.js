@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useForm } from 'react-hook-form';
 import {
   Container,
   FormControl,
@@ -9,8 +10,8 @@ import {
   MenuItem,
   Box,
   Button,
+  // Modal,
 } from '@material-ui/core';
-// import Button from '../Button';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -20,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RegulationsForm = () => {
+  const { valuesForm, handleSubmit } = useForm();
+
   const classes = useStyles();
 
   const [environmental, setEnvironmental] = React.useState('');
@@ -44,14 +47,34 @@ const RegulationsForm = () => {
     setOthers(event.target.value);
   };
 
-  const sendForm = (event) => {
+  const sendForm = (event, data) => {
     event.preventDefault();
+    console.log(data);
   };
+
+  // const [open, setOpen] = React.useState(false);
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
+  // const bodyModal = (
+  //   <div>
+  //     <h2 id="simple-modal-title">Text in a modal</h2>
+  //     <p id="simple-modal-description">
+  //       Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+  //     </p>
+  //   </div>
+  // );
 
   return (
     <Container>
-      <h5>Cumplimiento de Normativa:</h5>
-      <form onSubmit={sendForm}>
+      <h2>Cumplimiento de Normativa:</h2>
+      <form onSubmit={handleSubmit(sendForm)}>
         <InputLabel>Exigencias Medioambientales</InputLabel>
         <div className="reg-select">
           <FormControl className={classes.formControl}>
@@ -63,6 +86,7 @@ const RegulationsForm = () => {
               onChange={handleChange}
               className="select-sino"
               size="small"
+              inputRef={valuesForm}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
@@ -76,6 +100,7 @@ const RegulationsForm = () => {
             variant="outlined"
             className="margin-b-one"
             size="small"
+            inputRef={valuesForm}
             required
             fullWidth
           />
@@ -91,6 +116,7 @@ const RegulationsForm = () => {
               value={certifications}
               onChange={handleChange1}
               size="small"
+              inputRef={valuesForm}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
@@ -105,6 +131,7 @@ const RegulationsForm = () => {
             className="margin-b-one"
             required
             size="small"
+            inputRef={valuesForm}
             fullWidth
           />
         </div>
@@ -119,6 +146,7 @@ const RegulationsForm = () => {
               value={license}
               onChange={handleChange2}
               size="small"
+              inputRef={valuesForm}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
@@ -132,6 +160,7 @@ const RegulationsForm = () => {
             variant="outlined"
             className="margin-b-one"
             size="small"
+            inputRef={valuesForm}
             required
             fullWidth
           />
@@ -147,6 +176,7 @@ const RegulationsForm = () => {
               value={courses}
               onChange={handleChange3}
               size="small"
+              inputRef={valuesForm}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
@@ -160,6 +190,7 @@ const RegulationsForm = () => {
             variant="outlined"
             className="margin-b-one"
             size="small"
+            inputRef={valuesForm}
             required
             fullWidth
           />
@@ -175,6 +206,7 @@ const RegulationsForm = () => {
               value={others}
               onChange={handleChange4}
               size="small"
+              inputRef={valuesForm}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
@@ -188,21 +220,35 @@ const RegulationsForm = () => {
             variant="outlined"
             className="margin-b-one"
             size="small"
+            inputRef={valuesForm}
             required
             fullWidth
           />
         </div>
-        <div className='ctn-button'>
+        <div className="ctn-button">
           <Box display="flex" justifyContent="center" className="w100">
-            <Button variant="contained" color="default" type="submit">
+            <Button variant="contained" color="secondary" type="submit">
               Volver
             </Button>
           </Box>
           <Box display="flex" justifyContent="center" className="w100">
-            <Button variant="contained" color="primary" type="submit">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+            // onClick={handleOpen}
+            >
               Siguiente
             </Button>
           </Box>
+          {/* <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+          >
+            {bodyModal}
+          </Modal> */}
         </div>
       </form>
     </Container>
