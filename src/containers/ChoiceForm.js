@@ -8,6 +8,8 @@ import { Route, Switch } from 'react-router-dom';
 
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
+import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
+import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import logo from '../assets/images/logo-header.svg';
 
 const ChoicesForm = () => (
@@ -29,6 +31,14 @@ const ChoicesForm = () => (
               <Route
                 path="/preguntas/dependencia"
                 component={DependencySelector}
+              />
+              <Route
+                path="/preguntas/serviciosyfaltas"
+                component={ServicesFaults}
+              />
+              <Route
+                path="/preguntas/plazoytarifas"
+                component={PlazoTarifa}
               />
             </Switch>
           </CardContent>
