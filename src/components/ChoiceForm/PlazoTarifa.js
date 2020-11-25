@@ -177,12 +177,12 @@ const PlazoTarifa = () => {
         </div>
         <div className="bottomBox">
             <div className="boxOne">
-                <Button variant="contained" color="secondary" type="submit">
+                <Button href="/preguntas/serviciosyfaltas" variant="contained" color="secondary" type="submit">
                     Volver
                 </Button>
             </div>
             <div className="boxOne">
-                <Button variant="contained" color="primary" type="submit">
+                <Button href="/preguntas/otras" variant="contained" color="primary" type="submit">
                     Siguiente
                 </Button>
             </div>
