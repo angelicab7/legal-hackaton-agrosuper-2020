@@ -7,6 +7,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
+import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 
 const ChoicesForm = () => {
   const [answers, setAnswers] = useState({});
@@ -39,6 +40,10 @@ const ChoicesForm = () => {
                     onNext={onNextDependencySelector}
                   />
                 )}
+              />
+              <Route
+                path="/preguntas/otras"
+                render={() => <RegulationsForm />}
               />
             </Switch>
           </CardContent>
