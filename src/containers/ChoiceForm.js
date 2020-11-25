@@ -6,6 +6,8 @@ import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
+import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
+import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 import CenteredBox from '../components/CenteredBox';
 
@@ -39,12 +41,16 @@ const ChoicesForm = () => {
               path="/preguntas/contratistas"
               render={() => <ContractorsForm />}
             />
-
             <Route
               path="/preguntas/servicios"
               render={() => <ServicesForm />}
             />
             <Route path="/preguntas/otras" render={() => <RegulationsForm />} />
+            <Route
+              path="/preguntas/serviciosyfaltas"
+              component={ServicesFaults}
+            />
+            <Route path="/preguntas/plazoytarifas" component={PlazoTarifa} />
           </Switch>
         </CardContent>
       </Card>
