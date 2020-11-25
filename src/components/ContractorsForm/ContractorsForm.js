@@ -7,12 +7,12 @@ import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import { useForm } from 'react-hook-form';
 
-const ContractorsForm = () => {
+const ContractorsForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <Card className="w100">
@@ -25,10 +25,10 @@ const ContractorsForm = () => {
         >
           Datos Contratista y Coordinadores
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onNext)}>
           <InputLabel id="demo-simple-select-label">Razón Social</InputLabel>
           <TextField
-            name="razón social"
+            name="razonSocial"
             variant="outlined"
             inputRef={register}
             required
@@ -39,7 +39,7 @@ const ContractorsForm = () => {
             RUT Razón Social
           </InputLabel>
           <TextField
-            name="rutrazonsocial"
+            name="rutRazonSocial"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -49,7 +49,7 @@ const ContractorsForm = () => {
           />
           <InputLabel id="demo-simple-select-label">Domicilio</InputLabel>
           <TextField
-            name="domiciliorazonsocial"
+            name="domicilioRazonSocial"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -61,7 +61,7 @@ const ContractorsForm = () => {
             Representante Legal
           </InputLabel>
           <TextField
-            name="replegal"
+            name="repLegal"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -73,7 +73,7 @@ const ContractorsForm = () => {
             RUT Representante Legal
           </InputLabel>
           <TextField
-            name="rutreplegal"
+            name="rutRepLegal"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -103,12 +103,7 @@ const ContractorsForm = () => {
               </Button>
             </div>
             <div className="boxOne">
-              <Button
-                href="/preguntas/servicios"
-                variant="contained"
-                color="primary"
-                type="submit"
-              >
+              <Button variant="contained" color="primary" type="submit">
                 Siguiente
               </Button>
             </div>

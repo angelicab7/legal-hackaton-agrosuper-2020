@@ -11,25 +11,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 // import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 
-const ServicesForm = () => {
+const ServicesForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
-  //   const onChange = (e) => {
-  //     // console.log('hola estoy escuchando');
-  //     // console.log(e.target.value);
-  //     const optionValue = e.target.value;
-  //     const divHidden = document
-  //       .getElementsByClassName('text-hidden')
-  //       .style.display('none');
-  //     if (optionValue === 'Si') {
-  //       return divHidden.style.display('block');
-  //     }
-  //     return onChange;
-  //   };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <Card className="w100">
@@ -42,12 +29,12 @@ const ServicesForm = () => {
         >
           Detalles Servicios
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onNext)}>
           <InputLabel id="demo-simple-select-label">
             Objetos Servicios
           </InputLabel>
           <TextField
-            name="objetoservicios"
+            name="objetoServicios"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -59,7 +46,7 @@ const ServicesForm = () => {
             Descripción Servicios
           </InputLabel>
           <TextField
-            name="descripcionservicios"
+            name="descripcionServicios"
             type="text"
             variant="outlined"
             inputRef={register}
@@ -71,7 +58,7 @@ const ServicesForm = () => {
             Propuesta de Servicios
           </InputLabel>
           <TextField
-            name="propuestaservicios"
+            name="propuestaServicios"
             type="field"
             variant="outlined"
             inputRef={register}
@@ -97,7 +84,7 @@ const ServicesForm = () => {
           </FormControl>
           {/* <div className="text-hidden"> */}
           <TextField
-            name="areaservicios"
+            name="areaServicios"
             type="text"
             label="Detalle Área destinada a servicios"
             variant="outlined"
@@ -126,7 +113,7 @@ const ServicesForm = () => {
           </FormControl>
           <div className="text-hidden">
             <TextField
-              name="lugarservicios"
+              name="lugarServicios"
               type="text"
               variant="outlined"
               inputRef={register}
@@ -142,6 +129,7 @@ const ServicesForm = () => {
           <TextField
             id="date"
             label="Inicio"
+            name="inicioServicio"
             type="date"
             variant="outlined"
             inputRef={register}
@@ -154,6 +142,7 @@ const ServicesForm = () => {
           <TextField
             id="date"
             label="Término"
+            name="finServicio"
             type="date"
             variant="outlined"
             inputRef={register}
@@ -169,6 +158,7 @@ const ServicesForm = () => {
           <TextField
             id="hour"
             type="text"
+            name="horarioServicio"
             variant="outlined"
             inputRef={register}
             InputLabelProps={{
@@ -189,12 +179,7 @@ const ServicesForm = () => {
               </Button>
             </div>
             <div className="boxOne">
-              <Button
-                href="/preguntas/serviciosyfaltas"
-                variant="contained"
-                color="primary"
-                type="submit"
-              >
+              <Button variant="contained" color="primary" type="submit">
                 Siguiente
               </Button>
             </div>
