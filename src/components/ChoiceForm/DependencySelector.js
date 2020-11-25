@@ -22,13 +22,20 @@ const DependencySelector = ({ onNext }) => {
         Área del servicio
       </Typography>
       <form onSubmit={handleSubmit(onNext)}>
-        <FormControl className="w100 margin-b-one margin-t-one">
+        <FormControl
+          className="w100 margin-b-one margin-t-one"
+          variant="outlined"
+        >
           <InputLabel id="type-of-service-label">
             ¿Qué tipo de solicitud deseas realizar?
           </InputLabel>
           <Controller
             as={
-              <Select labelId="type-of-service-label" required>
+              <Select
+                labelId="type-of-service-label"
+                required
+                label="¿Qué tipo de solicitud deseas realizar?"
+              >
                 <MenuItem value="FISCALIZACIONES">Fiscalizaciones</MenuItem>
                 <MenuItem value="CONTRATOS">Contratos</MenuItem>
                 <MenuItem value="CARTA_FINIQUITO">
@@ -43,13 +50,17 @@ const DependencySelector = ({ onNext }) => {
             defaultValue=""
           />
         </FormControl>
-        <FormControl className="w100 margin-b-three">
+        <FormControl className="w100 margin-b-three" variant="outlined">
           <InputLabel id="type-of-dependency-label">
             Por favor, ingresa el área de servicio al que perteneces
           </InputLabel>
           <Controller
             as={
-              <Select labelId="type-of-dependency-label" required>
+              <Select
+                labelId="type-of-dependency-label"
+                required
+                label="Por favor, ingresa el área de servicio al que perteneces"
+              >
                 <MenuItem value="PRODUCCION_ANIMAL">Producción Animal</MenuItem>
                 <MenuItem value="INDUSTRIAL">Industrial</MenuItem>
                 <MenuItem value="TI">TI</MenuItem>
