@@ -1,7 +1,6 @@
 .home-container {
   background-color: white;
 }
-
 .centered-box-container {
   width: 100%;
   max-width: 600px;
@@ -60,7 +59,22 @@
   line-height: 3em;
   border-radius: 10px;
 }
-
 // .text-hidden{
 //   display: none;
 // }
+.reg-select{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.select-sino{
+  margin: 0;
+}
+.makeStyles-formControl-5 {
+    margin: 0;
+    margin-right: 8px;
+    min-width: 100px;
+}
+.ctn-button{
+  display: flex;
+}

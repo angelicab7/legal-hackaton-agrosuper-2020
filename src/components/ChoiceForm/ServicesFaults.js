@@ -67,16 +67,16 @@ const ServicesFaults = () => {
           className="servicesLvl"
         />
         <div className="bottomBox">
-          <div className="boxOne">
-            <Button variant="contained" color="gray" type="submit">
-              Volver
-            </Button>
-          </div>
-          <div className="boxOne">
-            <Button variant="contained" color="primary" type="submit">
-              Siguiente
-            </Button>
-          </div>
+            <div className="boxOne">
+                <Button variant="contained" color="gray" type="submit">
+                    Volver
+                </Button>
+            </div>
+            <div className="boxOne">
+                <Button href="/preguntas/plazoytarifas"  variant="contained" color="primary" type="submit">
+                    Siguiente
+                </Button>
+            </div>
         </div>
       </form>
     </>

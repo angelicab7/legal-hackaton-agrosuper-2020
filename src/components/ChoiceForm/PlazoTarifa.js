@@ -166,16 +166,16 @@ const PlazoTarifa = () => {
           </FormControl>
         </div>
         <div className="bottomBox">
-          <div className="boxOne">
-            <Button variant="contained" color="secondary" type="submit">
-              Volver
-            </Button>
-          </div>
-          <div className="boxOne">
-            <Button variant="contained" color="primary" type="submit">
-              Siguiente
-            </Button>
-          </div>
+            <div className="boxOne">
+                <Button href="/preguntas/serviciosyfaltas" variant="contained" color="secondary" type="submit">
+                    Volver
+                </Button>
+            </div>
+            <div className="boxOne">
+                <Button href="/preguntas/otras" variant="contained" color="primary" type="submit">
+                    Siguiente
+                </Button>
+            </div>
         </div>
       </form>
     </>
