@@ -27,60 +27,56 @@ const ServicesFaults = () => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputLabel id="demo-simple-select-label">
-            Niveles de Servicios:
+          Niveles de Servicios:
         </InputLabel>
         <TextField
-            name="Niveles de servicios"
-            label="Niveles de servicios"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="servicesLvl"
-          />
-        <InputLabel id="demo-simple-select-label">
-            Falta:
-        </InputLabel>
+          name="Niveles de servicios"
+          label="Niveles de servicios"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="servicesLvl"
+        />
+        <InputLabel id="demo-simple-select-label">Falta:</InputLabel>
         <TextField
-            name="Hecho"
-            label="Hecho"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="servicesLvl"
-          />
+          name="Hecho"
+          label="Hecho"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="servicesLvl"
+        />
         <FormControl variant="outlined" className="typeFault" required>
-          <InputLabel id="tipoFalta">
-            Tipo de falta
-          </InputLabel>
+          <InputLabel id="tipoFalta">Tipo de falta</InputLabel>
           <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-            <MenuItem value={'Leve'}>Leve</MenuItem>
-            <MenuItem value={'Grave'}>Grave</MenuItem>
-            <MenuItem value={'Crítica'}>Crítica</MenuItem>
+            <MenuItem value="Leve">Leve</MenuItem>
+            <MenuItem value="Grave">Grave</MenuItem>
+            <MenuItem value="Crítica">Crítica</MenuItem>
           </Select>
         </FormControl>
         <TextField
-            name="Monto de la multa"
-            label="monto de la multa (UF)"
-            variant="outlined"
-            type="number"
-            inputRef={register}
-            required
-            fullWidth
-            className="servicesLvl"
-          />
+          name="Monto de la multa"
+          label="monto de la multa (UF)"
+          variant="outlined"
+          type="number"
+          inputRef={register}
+          required
+          fullWidth
+          className="servicesLvl"
+        />
         <div className="bottomBox">
-            <div className="boxOne">
-                <Button variant="contained" color="gray" type="submit">
-                    Volver
-                </Button>
-            </div>
-            <div className="boxOne">
-                <Button variant="contained" color="primary" type="submit">
-                    Siguiente
-                </Button>
-            </div>
+          <div className="boxOne">
+            <Button variant="contained" color="gray" type="submit">
+              Volver
+            </Button>
+          </div>
+          <div className="boxOne">
+            <Button variant="contained" color="primary" type="submit">
+              Siguiente
+            </Button>
+          </div>
         </div>
       </form>
     </>

@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
+import InputLabel from '@material-ui/core/InputLabel';
 import { useForm } from 'react-hook-form';
 
 const ContractorsForm = () => {
@@ -26,118 +26,93 @@ const ContractorsForm = () => {
           Datos Contratista y Coordinadores
         </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Razón Social
-          </Typography>
+          <InputLabel id="demo-simple-select-label">Razón Social</InputLabel>
           <TextField
             name="razón social"
-            label="Razón Social"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             RUT Razón Social
-          </Typography>
+          </InputLabel>
           <TextField
             name="rutrazonsocial"
             type="text"
-            label="RUT Razon Social"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Domicilio
-          </Typography>
+          <InputLabel id="demo-simple-select-label">Domicilio</InputLabel>
           <TextField
             name="domiciliorazonsocial"
             type="text"
-            label="Domicilio"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             Representante Legal
-          </Typography>
+          </InputLabel>
           <TextField
             name="replegal"
             type="text"
-            label="Representante Legal"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             RUT Representante Legal
-          </Typography>
+          </InputLabel>
           <TextField
             name="rutreplegal"
             type="text"
-            label="RUT Representante Legal"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Personería
-          </Typography>
+          <InputLabel id="demo-simple-select-label">Personería</InputLabel>
           <TextField
             name="personeria"
             type="file"
-            label=""
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Box display="flex" justifyContent="center">
-            <Button variant="contained" color="primary" type="submit">
-              Siguiente
-            </Button>
-          </Box>
+          <div className="bottomBox">
+            <div className="boxOne">
+              <Button
+                href="/preguntas/dependencia"
+                variant="contained"
+                color="secondary"
+                type="submit"
+              >
+                Volver
+              </Button>
+            </div>
+            <div className="boxOne">
+              <Button
+                href="/preguntas/servicios"
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Siguiente
+              </Button>
+            </div>
+          </div>
         </form>
       </CardContent>
     </Card>
