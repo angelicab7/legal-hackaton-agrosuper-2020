@@ -24,7 +24,7 @@ const ChoicesForm = () => {
   console.log(answers);
 
   return (
-    <CenteredBox>
+    <CenteredBox className="margin-y-two">
       <Card className="w100" variant="outlined">
         <CardContent>
           <Switch>
