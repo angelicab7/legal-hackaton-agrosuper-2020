@@ -46,7 +46,7 @@ const LoginForm = () => {
             className="margin-b-one"
           />
           <Box display="flex" justifyContent="center">
-            <Button variant="contained" color="Primary" type="submit">
+            <Button variant="contained" color="primary" type="submit">
               Iniciar sesión
             </Button>
           </Box>
