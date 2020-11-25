@@ -6,11 +6,56 @@
   max-width: 600px;
   margin: 0 auto;
 }
-.spaceButtonUser{
+
+.servicesLvl{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.typeFault{
+  width: 100%;
+}
+
+.bottomBox{
+  display: flex;
+}
+
+.boxOne{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.plazos{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  margin-top: 10px
+}
+
+.boxTwo{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin: 5px
+}
+
+.renovacion{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.datePicker{
+  width: 100%;
+  margin: 5px
+}
+
+.spaceButtonUser {
   margin-top: 12%;
   margin-bottom: 12%;
 }
-.buttonUsers{
+.buttonUsers {
   line-height: 3em;
   border-radius: 10px;
 }
