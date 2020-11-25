@@ -10,7 +10,6 @@ import ServicesForm from '../components/ServicesForm/ServicesForm';
 import DependencySelector from '../components/ChoiceForm/DependencySelector';
 import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
 import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
-import logo from '../assets/images/logo-header.svg';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 
 const ChoicesForm = () => {
@@ -63,10 +62,7 @@ const ChoicesForm = () => {
                 path="/preguntas/serviciosyfaltas"
                 component={ServicesFaults}
               />
-              <Route
-                path="/preguntas/plazoytarifas"
-                component={PlazoTarifa}
-              />
+              <Route path="/preguntas/plazoytarifas" component={PlazoTarifa} />
             </Switch>
           </CardContent>
         </Card>
