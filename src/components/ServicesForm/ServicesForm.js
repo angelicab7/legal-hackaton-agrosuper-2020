@@ -8,7 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import Box from '@material-ui/core/Box';
+// import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 
 const ServicesForm = () => {
@@ -17,6 +17,19 @@ const ServicesForm = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  //   const onChange = (e) => {
+  //     // console.log('hola estoy escuchando');
+  //     // console.log(e.target.value);
+  //     const optionValue = e.target.value;
+  //     const divHidden = document
+  //       .getElementsByClassName('text-hidden')
+  //       .style.display('none');
+  //     if (optionValue === 'Si') {
+  //       return divHidden.style.display('block');
+  //     }
+  //     return onChange;
+  //   };
 
   return (
     <Card className="w100">
@@ -30,81 +43,59 @@ const ServicesForm = () => {
           Detalles Servicios
         </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Objeto Servicios
-          </Typography>
+          <InputLabel id="demo-simple-select-label">
+            Objetos Servicios
+          </InputLabel>
           <TextField
             name="objetoservicios"
             type="text"
-            label=""
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             Descripción Servicios
-          </Typography>
+          </InputLabel>
           <TextField
             name="descripcionservicios"
             type="text"
-            label=""
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             Propuesta de Servicios
-          </Typography>
+          </InputLabel>
           <TextField
             name="propuestaservicios"
             type="field"
-            label=""
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
+          <InputLabel id="demo-simple-select-label">
             Área destinada a los Servicios
-          </Typography>
+          </InputLabel>
           <FormControl>
             <InputLabel>Si/No</InputLabel>
             <Select
               labelId="select-id"
               id="yes-ex"
               //   value=
-              //   onChange=
+              //   onChange={onChange}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
               <MenuItem value="NA">No Aplica</MenuItem>
             </Select>
           </FormControl>
+          {/* <div className="text-hidden"> */}
           <TextField
             name="areaservicios"
             type="text"
@@ -115,70 +106,99 @@ const ServicesForm = () => {
             fullWidth
             className="margin-b-one"
           />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Lugar en que se prestara el Servicio
-          </Typography>
+          {/* </div> */}
+
+          <InputLabel id="demo-simple-select-label">
+            Lugar en que se prestara el
+          </InputLabel>
           <FormControl>
             <InputLabel>Si/No</InputLabel>
             <Select
               labelId="select-id"
               id="yes-ex"
               //   value=
-              //   onChange=
+              //   onChange={}
               required
             >
               <MenuItem value="Si">Si</MenuItem>
               <MenuItem value="NA">No Aplica</MenuItem>
             </Select>
           </FormControl>
+          <div className="text-hidden">
+            <TextField
+              name="lugarservicios"
+              type="text"
+              variant="outlined"
+              inputRef={register}
+              required
+              fullWidth
+              className="margin-b-one"
+            />
+          </div>
+
+          <InputLabel id="demo-simple-select-label">
+            Fechas en que se prestara el servicio
+          </InputLabel>
           <TextField
-            name="lugarservicios"
-            type="text"
-            label=""
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Días y Horarios en que se prestara el Servicio
-          </Typography>
-          <TextField
-            name="fecha inicio"
-            type="date"
+            id="date"
             label="Inicio"
+            type="date"
             variant="outlined"
             inputRef={register}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            className="datePicker"
             required
-            fullWidth
-            className="margin-b-one"
           />
           <TextField
-            name="fecha termino"
-            type="date"
+            id="date"
             label="Término"
+            type="date"
             variant="outlined"
             inputRef={register}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            className="datePicker"
             required
-            fullWidth
-            className="margin-b-one"
           />
-          <Box display="flex" justifyContent="center">
-            <Button variant="contained" color="primary" type="submit">
-              Siguiente
-            </Button>
-          </Box>
+          <InputLabel id="demo-simple-select-label">
+            Horarios en que se prestara el servicio
+          </InputLabel>
+          <TextField
+            id="hour"
+            type="text"
+            variant="outlined"
+            inputRef={register}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            className="datePicker"
+            required
+          />
+          <div className="bottomBox">
+            <div className="boxOne">
+              <Button
+                href="/preguntas/contratistas"
+                variant="contained"
+                color="secondary"
+                type="submit"
+              >
+                Volver
+              </Button>
+            </div>
+            <div className="boxOne">
+              <Button
+                href="/preguntas/serviciosyfaltas"
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Siguiente
+              </Button>
+            </div>
+          </div>
         </form>
       </CardContent>
     </Card>
