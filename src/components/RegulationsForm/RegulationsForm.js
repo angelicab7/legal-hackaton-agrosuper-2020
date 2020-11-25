@@ -48,8 +48,8 @@ const RegulationsForm = () => {
   };
 
   const sendForm = (event, data) => {
-    event.preventDefault();
-    console.log(data);
+    // event.preventDefault();
+    console.log(data, event);
   };
 
   // const [open, setOpen] = React.useState(false);
