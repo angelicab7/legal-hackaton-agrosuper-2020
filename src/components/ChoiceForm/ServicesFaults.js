@@ -77,7 +77,7 @@ const ServicesFaults = () => {
                 </Button>
             </div>
             <div className="boxOne">
-                <Button variant="contained" color="primary" type="submit">
+                <Button href="/preguntas/plazoytarifas"  variant="contained" color="primary" type="submit">
                     Siguiente
                 </Button>
             </div>
