@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
-
 import NavBar from './components/NavBar';
 import Home from './containers/Home';
 import SelectUser from './containers/SelectUserView';
 import NotFoundPage from './containers/NotFound';
 import ChoiceForm from './containers/ChoiceForm';
-import Lawyers from './containers/Lawyers'
+import Lawyers from './containers/Lawyers';
 
 class App extends Component {
   render() {
