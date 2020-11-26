@@ -81,7 +81,8 @@ const ChoicesForm = () => {
         ...answers,
       });
   };
-  const sendEmail = () => {
+
+  const sendEmailCliente = () => {
     emailjs
       .send(
         'default_service',
@@ -107,7 +108,7 @@ const ChoicesForm = () => {
   useEffect(() => {
     if (sendData) {
       sendDataToFirebase();
-      sendEmail();
+      sendEmailCliente();
     }
   }, [answers, sendData]);
 
