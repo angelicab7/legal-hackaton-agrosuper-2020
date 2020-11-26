@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import firebase from 'firebase/app';
 
 // Components
@@ -22,16 +23,12 @@ provider.setCustomParameters({
 });
 
 const LoginForm = ({ isAuthenticated }) => {
-  const onMicrosoftLogin = () => {
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log('LOGIN', result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onMicrosoftLogin = async () => {
+    setIsLoading(true);
+    await firebase.auth().signInWithPopup(provider);
+    setIsLoading(false);
   };
 
   if (isAuthenticated) {
@@ -59,7 +56,8 @@ const LoginForm = ({ isAuthenticated }) => {
             style={{ fontSize: 100 }}
             className="margin-b-one"
           />
-          <Button type="button" onClick={onMicrosoftLogin}>
+          {isLoading && <CircularProgress className="margin-b-one" />}
+          <Button type="button" onClick={onMicrosoftLogin} disabled={isLoading}>
             <img src={microsoftSignInLogo} alt="Iniciar sesión con Microsoft" />
           </Button>
         </Box>
