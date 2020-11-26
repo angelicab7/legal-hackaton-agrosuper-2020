@@ -6,8 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-
 import { useForm } from 'react-hook-form';
+import ProgressBar from '../ProgressBar';
 
 const ServicesForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
@@ -38,10 +38,19 @@ const ServicesForm = ({ onNext }) => {
       };
     });
 
+  const testData = [{ bgcolor: '#002089', completed: 40 }];
+
   // };
 
   return (
     <>
+      {testData.map((item) => (
+        <ProgressBar
+          key={item.id}
+          bgcolor={item.bgcolor}
+          completed={item.completed}
+        />
+      ))}
       <Typography
         variant="h3"
         component="h1"
