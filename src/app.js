@@ -73,8 +73,6 @@ class App extends Component {
       return <PageLoader />;
     }
 
-    console.log(this.state.authState, '------------');
-
     return (
       <AuthContext.Provider
         value={{
