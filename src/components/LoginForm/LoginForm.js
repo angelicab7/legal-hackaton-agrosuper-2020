@@ -1,13 +1,15 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import TextField from '@material-ui/core/TextField';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
-import { useForm } from 'react-hook-form';
 import firebase from 'firebase/app';
 
+// Components
+import withAuth from '../Auth/withAuth';
 import microsoftSignInLogo from '../../assets/images/ms-symbollockup_signin_dark.svg';
 
 const provider = new firebase.auth.OAuthProvider('microsoft.com');
@@ -19,13 +21,7 @@ provider.setCustomParameters({
   redirect_uri: 'http://localhost:8080',
 });
 
-const LoginForm = () => {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
+const LoginForm = ({ isAuthenticated }) => {
   const onMicrosoftLogin = () => {
     firebase
       .auth()
@@ -38,6 +34,10 @@ const LoginForm = () => {
       });
   };
 
+  if (isAuthenticated) {
+    return <Redirect to="/user" />;
+  }
+
   return (
     <Card className="w100">
       <CardContent>
@@ -45,47 +45,27 @@ const LoginForm = () => {
           variant="h3"
           component="h1"
           align="center"
-          className="margin-b-one"
+          className="margin-b-three"
         >
           Bienvenido
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <TextField
-            name="username"
-            label="Usuario"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+        >
+          <AccountCircleIcon
+            style={{ fontSize: 100 }}
             className="margin-b-one"
           />
-          <TextField
-            name="password"
-            type="password"
-            label="Contraseña"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Box display="flex" justifyContent="center">
-            <Button variant="contained" color="primary" type="submit">
-              Iniciar sesión
-            </Button>
-          </Box>
-          <Box display="flex" justifyContent="center">
-            <Button type="button" onClick={onMicrosoftLogin}>
-              <img
-                src={microsoftSignInLogo}
-                alt="Iniciar sesión con Microsoft"
-              />
-            </Button>
-          </Box>
-        </form>
+          <Button type="button" onClick={onMicrosoftLogin}>
+            <img src={microsoftSignInLogo} alt="Iniciar sesión con Microsoft" />
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );
 };
 
-export default LoginForm;
+export default withAuth(LoginForm);
