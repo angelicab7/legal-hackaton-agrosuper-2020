@@ -20,7 +20,9 @@ const NavBar = ({ isAuthenticated }) => (
       </IconButton>
       */}
       <Box display="flex" alignItems="center" flexGrow={1}>
-        <img src={logo} alt="Agro Super Logo" width={100} />
+        <Link to="/">
+          <img src={logo} alt="Agro Super Logo" width={100} />
+        </Link>
       </Box>
       {isAuthenticated && (
         <Button component={Link} to="/logout" color="inherit">
