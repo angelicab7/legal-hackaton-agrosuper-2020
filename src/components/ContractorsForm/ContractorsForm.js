@@ -35,7 +35,7 @@ const ContractorsForm = ({ onNext }) => {
       };
     });
 
-  const testData = [{ bgcolor: '#002089', completed: 20 }];
+  const testData = [{ bgcolor: '#002089', completed: 20, id: 'color' }];
 
   return (
     <>

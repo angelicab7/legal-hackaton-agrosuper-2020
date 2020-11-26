@@ -38,7 +38,7 @@ const ServicesForm = ({ onNext }) => {
       };
     });
 
-  const testData = [{ bgcolor: '#002089', completed: 40 }];
+  const testData = [{ bgcolor: '#002089', completed: 40, id: 'color' }];
 
   // };
 

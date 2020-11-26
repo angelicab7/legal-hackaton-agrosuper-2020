@@ -14,7 +14,7 @@ import ProgressBar from '../ProgressBar';
 
 const PlazoTarifa = ({ onNext }) => {
   const { register, handleSubmit, control } = useForm();
-  const testData = [{ bgcolor: '#002089', completed: 80 }];
+  const testData = [{ bgcolor: '#002089', completed: 80, id: 'color' }];
 
   return (
     <>
