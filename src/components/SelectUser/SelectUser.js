@@ -17,10 +17,10 @@ const SelectUser = () => {
           <Typography
             variant="h5"
             component="h1"
-            align="left"
-            className="margin-b-one"
+            align="center"
+            className="margin-b-three"
           >
-            Por favor indicanos quién eres:
+            Por favor indicanos quién eres
           </Typography>
           <Box display="flex" justifyContent="center" className="w100">
             <Button
@@ -29,7 +29,7 @@ const SelectUser = () => {
               color="secondary"
               type="submit"
               fullWidth
-              className="spaceButtonUser buttonUsers"
+              className="buttonUsers margin-b-one"
             >
               Abogado
             </Button>
@@ -41,7 +41,7 @@ const SelectUser = () => {
               color="secondary"
               type="submit"
               fullWidth
-              className="spaceButtonUser buttonUsers"
+              className="buttonUsers"
             >
               Cliente
             </Button>
