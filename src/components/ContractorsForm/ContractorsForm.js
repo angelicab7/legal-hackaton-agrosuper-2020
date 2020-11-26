@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
+import ProgressBar from '../ProgressBar';
 
 const ContractorsForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
@@ -34,8 +35,21 @@ const ContractorsForm = ({ onNext }) => {
       };
     });
 
+  const testData = [
+    { bgcolor: '#6a1b9a', completed: 60 },
+    { bgcolor: '#00695c', completed: 30 },
+    { bgcolor: '#ef6c00', completed: 53 },
+  ];
+
   return (
     <>
+      {testData.map((item, idx) => (
+        <ProgressBar
+          key={idx}
+          bgcolor={item.bgcolor}
+          completed={item.completed}
+        />
+      ))}
       <Typography
         variant="h3"
         component="h1"
