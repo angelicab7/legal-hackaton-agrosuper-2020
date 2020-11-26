@@ -9,6 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
+import ProgressBar from '../ProgressBar';
 
 const ServicesFaults = () => {
   const { register, handleSubmit } = useForm();
@@ -17,8 +18,17 @@ const ServicesFaults = () => {
     console.log(data);
   };
 
+  const testData = [{ bgcolor: '#002089', completed: 60 }];
+
   return (
     <>
+      {testData.map((item) => (
+        <ProgressBar
+          key={item.id}
+          bgcolor={item.bgcolor}
+          completed={item.completed}
+        />
+      ))}
       <Typography
         variant="h3"
         component="h1"

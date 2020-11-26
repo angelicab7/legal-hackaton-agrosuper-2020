@@ -35,17 +35,13 @@ const ContractorsForm = ({ onNext }) => {
       };
     });
 
-  const testData = [
-    { bgcolor: '#6a1b9a', completed: 60 },
-    { bgcolor: '#00695c', completed: 30 },
-    { bgcolor: '#ef6c00', completed: 53 },
-  ];
+  const testData = [{ bgcolor: '#002089', completed: 20 }];
 
   return (
     <>
-      {testData.map((item, idx) => (
+      {testData.map((item) => (
         <ProgressBar
-          key={idx}
+          key={item.id}
           bgcolor={item.bgcolor}
           completed={item.completed}
         />
