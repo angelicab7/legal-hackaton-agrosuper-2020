@@ -10,12 +10,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
 
-const ServicesFaults = () => {
+const ServicesFaults = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <>
@@ -25,9 +21,9 @@ const ServicesFaults = () => {
         align="center"
         className="margin-b-one"
       >
-        Servicios y faltas:
+        Niveles de Servicios y Multas:
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onNext)}>
         <InputLabel id="demo-simple-select-label">
           Niveles de Servicios:
         </InputLabel>
