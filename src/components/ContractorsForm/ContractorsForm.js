@@ -1,146 +1,134 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 
-const ContractorsForm = () => {
+const ContractorsForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  // Function to handle event onChange of input file
+  const uploadFile = async (e) => {
+    // console.log('estoy escuchando');
+    // console.log(e.target.files);
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    console.log(base64);
+    register(base64);
   };
 
+  // Function to convert base 64
+
+  const convertBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+
   return (
-    <Card className="w100">
-      <CardContent>
-        <Typography
-          variant="h3"
-          component="h1"
-          align="center"
+    <>
+      <Typography
+        variant="h3"
+        component="h1"
+        align="center"
+        className="margin-b-one"
+      >
+        Datos Contratista y Coordinadores
+      </Typography>
+      <form onSubmit={handleSubmit(onNext)}>
+        <TextField
+          name="razonSocial"
+          label="Razón Social"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
           className="margin-b-one"
-        >
-          Datos Contratista y Coordinadores
-        </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Razón Social
-          </Typography>
-          <TextField
-            name="razón social"
-            label="Razón Social"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            RUT Razón Social
-          </Typography>
-          <TextField
-            name="rutrazonsocial"
-            type="text"
-            label="RUT Razon Social"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Domicilio
-          </Typography>
-          <TextField
-            name="domiciliorazonsocial"
-            type="text"
-            label="Domicilio"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Representante Legal
-          </Typography>
-          <TextField
-            name="replegal"
-            type="text"
-            label="Representante Legal"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            RUT Representante Legal
-          </Typography>
-          <TextField
-            name="rutreplegal"
-            type="text"
-            label="RUT Representante Legal"
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Typography
-            variant="h6"
-            component="h6"
-            align="left"
-            className="margin-b-one"
-          >
-            Personería
-          </Typography>
-          <TextField
-            name="personeria"
-            type="file"
-            label=""
-            variant="outlined"
-            inputRef={register}
-            required
-            fullWidth
-            className="margin-b-one"
-          />
-          <Box display="flex" justifyContent="center">
+        />
+        <TextField
+          name="rutRazonSocial"
+          label="RUT Razón Social"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        <TextField
+          name="domicilioRazonSocial"
+          label="Domicilio"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        <TextField
+          name="repLegal"
+          label="Representante Legal"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        <TextField
+          name="rutRepLegal"
+          label="RUT Representante Legal"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        <TextField
+          InputLabelProps={{ shrink: true }}
+          name="personeria"
+          label="Personería"
+          type="file"
+          id="docpdf"
+          variant="outlined"
+          inputRef={register(uploadFile)}
+          required
+          fullWidth
+          className="margin-b-one"
+          onChange={(e) => {
+            uploadFile(e);
+          }}
+        />
+        <div className="bottomBox">
+          <div className="boxOne">
+            <Button
+              component={Link}
+              to="/preguntas/dependencia"
+              variant="contained"
+              color="secondary"
+              type="submit"
+            >
+              Volver
+            </Button>
+          </div>
+          <div className="boxOne">
             <Button variant="contained" color="primary" type="submit">
               Siguiente
             </Button>
-          </Box>
-        </form>
-      </CardContent>
-    </Card>
+          </div>
+        </div>
+      </form>
+    </>
   );
 };
 

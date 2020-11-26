@@ -17,14 +17,38 @@ const ChoicesForm = () => {
 
   const onNextDependencySelector = (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
-    push('/'); // Change this by the route of the next set of questions
+    push('/preguntas/contratistas');
+  };
+
+  const onNextContractorsForm = (data) => {
+    setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
+    push('/preguntas/servicios');
+  };
+
+  const onNextServicesForm = (data) => {
+    setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
+    push('/preguntas/serviciosyfaltas');
+  };
+
+  const onNextServicesFaults = (data) => {
+    setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
+    push('/preguntas/plazoytarifas');
+  };
+
+  const onNextPlazoTarifa = (data) => {
+    setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
+    push('/preguntas/otras');
+  };
+
+  const onNextOtras = (data) => {
+    setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
   };
 
   // eslint-disable-next-line no-console
   console.log(answers);
 
   return (
-    <CenteredBox>
+    <CenteredBox className="margin-y-two">
       <Card className="w100" variant="outlined">
         <CardContent>
           <Switch>
@@ -39,18 +63,34 @@ const ChoicesForm = () => {
             />
             <Route
               path="/preguntas/contratistas"
-              render={() => <ContractorsForm />}
+              render={(props) => (
+                <ContractorsForm {...props} onNext={onNextContractorsForm} />
+              )}
             />
             <Route
               path="/preguntas/servicios"
-              render={() => <ServicesForm />}
+              render={(props) => (
+                <ServicesForm {...props} onNext={onNextServicesForm} />
+              )}
             />
-            <Route path="/preguntas/otras" render={() => <RegulationsForm />} />
             <Route
               path="/preguntas/serviciosyfaltas"
-              component={ServicesFaults}
+              render={(props) => (
+                <ServicesFaults {...props} onNext={onNextServicesFaults} />
+              )}
             />
-            <Route path="/preguntas/plazoytarifas" component={PlazoTarifa} />
+            <Route
+              path="/preguntas/plazoytarifas"
+              render={(props) => (
+                <PlazoTarifa {...props} onNext={onNextPlazoTarifa} />
+              )}
+            />
+            <Route
+              path="/preguntas/otras"
+              render={(props) => (
+                <RegulationsForm {...props} onNext={onNextOtras} />
+              )}
+            />
           </Switch>
         </CardContent>
       </Card>
