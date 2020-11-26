@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Box from '@material-ui/core/Box';
 
 const ServicesFaults = () => {
   const { register, handleSubmit } = useForm();
@@ -66,18 +68,25 @@ const ServicesFaults = () => {
           fullWidth
           className="servicesLvl"
         />
-        <div className="bottomBox">
-            <div className="boxOne">
-                <Button variant="contained" color="gray" type="submit">
-                    Volver
-                </Button>
-            </div>
-            <div className="boxOne">
-                <Button href="/preguntas/plazoytarifas"  variant="contained" color="primary" type="submit">
-                    Siguiente
-                </Button>
-            </div>
-        </div>
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          className="margin-t-two"
+        >
+          <Button
+            component={Link}
+            to="/preguntas/servicios"
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
+            Anterior
+          </Button>
+          <Button variant="contained" color="primary" type="submit">
+            Siguiente
+          </Button>
+        </Box>
       </form>
     </>
   );

@@ -1,8 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
 import {
-  Container,
   FormControl,
   InputLabel,
   TextField,
@@ -10,47 +9,12 @@ import {
   MenuItem,
   Box,
   Button,
-  // Modal,
+  Typography,
+  Grid,
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(2),
-    minWidth: 100,
-  },
-}));
-
-const RegulationsForm = () => {
-  const { valuesForm, handleSubmit } = useForm();
-
-  const classes = useStyles();
-
-  const [environmental, setEnvironmental] = React.useState('');
-  const [certifications, setCertifications] = React.useState('');
-  const [license, setLicense] = React.useState('');
-  const [courses, setCourses] = React.useState('');
-  const [others, setOthers] = React.useState('');
-
-  const handleChange = (event) => {
-    setEnvironmental(event.target.value);
-  };
-  const handleChange1 = (event) => {
-    setCertifications(event.target.value);
-  };
-  const handleChange2 = (event) => {
-    setLicense(event.target.value);
-  };
-  const handleChange3 = (event) => {
-    setCourses(event.target.value);
-  };
-  const handleChange4 = (event) => {
-    setOthers(event.target.value);
-  };
-
-  const sendForm = (event, data) => {
-    // event.preventDefault();
-    console.log(data, event);
-  };
+const RegulationsForm = ({ onNext }) => {
+  const { register, handleSubmit, control } = useForm();
 
   // const [open, setOpen] = React.useState(false);
 
@@ -72,171 +36,192 @@ const RegulationsForm = () => {
   // );
 
   return (
-    <Container>
-      <h2>Cumplimiento de Normativa:</h2>
-      <form onSubmit={handleSubmit(sendForm)}>
-        <InputLabel>Exigencias Medioambientales</InputLabel>
-        <div className="reg-select">
-          <FormControl className={classes.formControl}>
-            <InputLabel>Si/No</InputLabel>
-            <Select
-              labelId="select-id"
-              id="yes-ex"
-              value={environmental}
-              onChange={handleChange}
-              className="select-sino"
-              size="small"
-              inputRef={valuesForm}
-              required
-            >
-              <MenuItem value="Si">Si</MenuItem>
-              <MenuItem value="No">No</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            name=""
-            type="text"
-            label="¿Cuáles?"
-            variant="outlined"
-            className="margin-b-one"
-            size="small"
-            inputRef={valuesForm}
-            required
-            fullWidth
-          />
-        </div>
-
-        <InputLabel>Certificaciones requeridas</InputLabel>
-        <div className="reg-select">
-          <FormControl className={classes.formControl}>
-            <InputLabel>Si/No</InputLabel>
-            <Select
-              labelId="select-id"
-              id="yes-cr"
-              value={certifications}
-              onChange={handleChange1}
-              size="small"
-              inputRef={valuesForm}
-              required
-            >
-              <MenuItem value="Si">Si</MenuItem>
-              <MenuItem value="No">No</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            name="input-certifications"
-            type="text"
-            label="¿Cuáles?"
-            variant="outlined"
-            className="margin-b-one"
-            required
-            size="small"
-            inputRef={valuesForm}
-            fullWidth
-          />
-        </div>
-
-        <InputLabel>Licencia de conducir</InputLabel>
-        <div className="reg-select">
-          <FormControl className={classes.formControl}>
-            <InputLabel>Si/No</InputLabel>
-            <Select
-              labelId="select-id"
-              id="yes-lc"
-              value={license}
-              onChange={handleChange2}
-              size="small"
-              inputRef={valuesForm}
-              required
-            >
-              <MenuItem value="Si">Si</MenuItem>
-              <MenuItem value="No">No</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            name="input-license"
-            type="text"
-            label="¿Cuáles?"
-            variant="outlined"
-            className="margin-b-one"
-            size="small"
-            inputRef={valuesForm}
-            required
-            fullWidth
-          />
-        </div>
-
-        <InputLabel>Cursos especiales</InputLabel>
-        <div className="reg-select">
-          <FormControl className={classes.formControl}>
-            <InputLabel>Si/No</InputLabel>
-            <Select
-              labelId="select-id"
-              id="yes-ce"
-              value={courses}
-              onChange={handleChange3}
-              size="small"
-              inputRef={valuesForm}
-              required
-            >
-              <MenuItem value="Si">Si</MenuItem>
-              <MenuItem value="No">No</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            name="input-courses"
-            type="text"
-            label="¿Cuáles?"
-            variant="outlined"
-            className="margin-b-one"
-            size="small"
-            inputRef={valuesForm}
-            required
-            fullWidth
-          />
-        </div>
-
-        <InputLabel>Otros</InputLabel>
-        <div className="reg-select">
-          <FormControl className={classes.formControl}>
-            <InputLabel>Si/No</InputLabel>
-            <Select
-              labelId="select-id"
-              id="yes-o"
-              value={others}
-              onChange={handleChange4}
-              size="small"
-              inputRef={valuesForm}
-              required
-            >
-              <MenuItem value="Si">Si</MenuItem>
-              <MenuItem value="No">No</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            name="input-others"
-            type="text"
-            label="¿Cuáles?"
-            variant="outlined"
-            className="margin-b-one"
-            size="small"
-            inputRef={valuesForm}
-            required
-            fullWidth
-          />
-        </div>
-        <div className="ctn-button">
-          <Box display="flex" justifyContent="center" className="w100">
-            <Button variant="contained" color="secondary" type="submit">
-              Volver
-            </Button>
-          </Box>
-          <Box display="flex" justifyContent="center" className="w100">
-            <Button variant="contained" color="primary" type="submit">
-              Siguiente
-            </Button>
-          </Box>
-          {/* <Modal
+    <>
+      <Typography
+        variant="h3"
+        component="h1"
+        align="center"
+        className="margin-b-one"
+      >
+        Cumplimiento de normativa:
+      </Typography>
+      <form onSubmit={handleSubmit(onNext)}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <InputLabel>Exigencias Medioambientales:</InputLabel>
+          </Grid>
+          <Grid item xs={4} md={3}>
+            <FormControl required fullWidth>
+              <InputLabel id="exigencias-medioambientales-label">
+                Si/No
+              </InputLabel>
+              <Controller
+                name="exigenciasMedioambientales"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="exigencias-medioambientales-label" required>
+                    <MenuItem value>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={8} md={9}>
+            <TextField
+              name="exigenciasMedioambientalesComentarios"
+              type="text"
+              label="¿Cuáles?"
+              variant="outlined"
+              className="margin-b-one"
+              inputRef={register}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputLabel>Certificaciones requeridas:</InputLabel>
+          </Grid>
+          <Grid item xs={4} md={3}>
+            <FormControl required fullWidth>
+              <InputLabel id="certificaciones-requeridas-label">
+                Si/No
+              </InputLabel>
+              <Controller
+                name="certificacionesRequeridas"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="certificaciones-requeridas-label" required>
+                    <MenuItem value>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={8} md={9}>
+            <TextField
+              name="certificacionesRequeridasComentarios"
+              type="text"
+              label="¿Cuáles?"
+              variant="outlined"
+              className="margin-b-one"
+              inputRef={register}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputLabel>Licencia de conducir:</InputLabel>
+          </Grid>
+          <Grid item xs={4} md={3}>
+            <FormControl required fullWidth>
+              <InputLabel id="licencia-conducir-label">Si/No</InputLabel>
+              <Controller
+                name="licenciaDeConducir"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="licencia-conducir-label" required>
+                    <MenuItem value>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={8} md={9}>
+            <TextField
+              name="licenciaDeConducirComentarios"
+              type="text"
+              label="¿Cuáles?"
+              variant="outlined"
+              className="margin-b-one"
+              inputRef={register}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputLabel>Cursos especiales:</InputLabel>
+          </Grid>
+          <Grid item xs={4} md={3}>
+            <FormControl required fullWidth>
+              <InputLabel id="cursos-especiales-label">Si/No</InputLabel>
+              <Controller
+                name="cursosEspeciales"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="cursos-especiales-label" required>
+                    <MenuItem value>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={8} md={9}>
+            <TextField
+              name="cursosEspecialesComentarios"
+              type="text"
+              label="¿Cuáles?"
+              variant="outlined"
+              className="margin-b-one"
+              inputRef={register}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputLabel>Otros:</InputLabel>
+          </Grid>
+          <Grid item xs={4} md={3}>
+            <FormControl required fullWidth>
+              <InputLabel id="otros-label">Si/No</InputLabel>
+              <Controller
+                name="otros"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="otros-label" required>
+                    <MenuItem value>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                  </Select>
+                }
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={8} md={9}>
+            <TextField
+              name="otrosComentarios"
+              type="text"
+              label="¿Cuáles?"
+              variant="outlined"
+              className="margin-b-one"
+              inputRef={register}
+              fullWidth
+            />
+          </Grid>
+        </Grid>
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          className="margin-t-two"
+        >
+          <Button
+            component={Link}
+            to="/preguntas/plazoytarifas"
+            variant="contained"
+            color="secondary"
+            type="submit"
+          >
+            Anterior
+          </Button>
+          <Button variant="contained" color="primary" type="submit">
+            Siguiente
+          </Button>
+        </Box>
+        {/* <Modal
             open={open}
             onClose={handleClose}
             aria-labelledby="simple-modal-title"
@@ -244,9 +229,8 @@ const RegulationsForm = () => {
           >
             {bodyModal}
           </Modal> */}
-        </div>
       </form>
-    </Container>
+    </>
   );
 };
 export default RegulationsForm;
