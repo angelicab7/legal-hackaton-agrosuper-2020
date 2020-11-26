@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -10,12 +11,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 
-const PlazoTarifa = () => {
+const PlazoTarifa = ({ onNext }) => {
   const { register, handleSubmit, control } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   return (
     <>
@@ -27,8 +24,8 @@ const PlazoTarifa = () => {
       >
         Plazo y tarifas:
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Grid container spacing={3}>
+      <form onSubmit={handleSubmit(onNext)}>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             <InputLabel>Plazo de los Servicios:</InputLabel>
           </Grid>
@@ -214,19 +211,15 @@ const PlazoTarifa = () => {
           className="margin-t-two"
         >
           <Button
-            href="/preguntas/serviciosyfaltas"
+            component={Link}
+            to="/preguntas/serviciosyfaltas"
             variant="contained"
             color="secondary"
             type="submit"
           >
-            Volver
+            Anterior
           </Button>
-          <Button
-            href="/preguntas/otras"
-            variant="contained"
-            color="primary"
-            type="submit"
-          >
+          <Button variant="contained" color="primary" type="submit">
             Siguiente
           </Button>
         </Box>
