@@ -12,19 +12,11 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import ProgressBar from '../ProgressBar';
 
-const PlazoTarifa = ({ onNext }) => {
+const PlazoTarifa = ({ onNext, handler }) => {
   const { register, handleSubmit, control } = useForm();
-  const testData = [{ bgcolor: '#002089', completed: 80 }];
 
   return (
     <>
-      {testData.map((item) => (
-        <ProgressBar
-          key={item.id}
-          bgcolor={item.bgcolor}
-          completed={item.completed}
-        />
-      ))}
       <Typography
         variant="h3"
         component="h1"
@@ -65,14 +57,15 @@ const PlazoTarifa = ({ onNext }) => {
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <TextField
-              name="renovacion"
-              label="Renovación"
-              variant="outlined"
-              inputRef={register}
-              required
-              fullWidth
-            />
+            <FormControl variant="outlined" className="typeFault" required>
+                <InputLabel id="tipoFalta">
+                    Renovación
+                </InputLabel>
+                <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                    <MenuItem value={true}>Si</MenuItem>
+                    <MenuItem value={false}>No</MenuItem>
+                </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={12} md={6}>
             <FormControl variant="outlined" fullWidth required>
@@ -225,6 +218,7 @@ const PlazoTarifa = ({ onNext }) => {
             variant="contained"
             color="secondary"
             type="submit"
+            onClick={() => { handler({bgcolor: '#002089', completed: 60}) }}
           >
             Anterior
           </Button>

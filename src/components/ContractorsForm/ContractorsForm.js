@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
 import ProgressBar from '../ProgressBar';
 
-const ContractorsForm = ({ onNext }) => {
+const ContractorsForm = ({ onNext, handler }) => {
   const { register, handleSubmit } = useForm();
 
   // Function to handle event onChange of input file
@@ -35,17 +35,9 @@ const ContractorsForm = ({ onNext }) => {
       };
     });
 
-  const testData = [{ bgcolor: '#002089', completed: 20 }];
 
   return (
     <>
-      {testData.map((item) => (
-        <ProgressBar
-          key={item.id}
-          bgcolor={item.bgcolor}
-          completed={item.completed}
-        />
-      ))}
       <Typography
         variant="h3"
         component="h1"
@@ -127,6 +119,7 @@ const ContractorsForm = ({ onNext }) => {
               variant="contained"
               color="secondary"
               type="submit"
+              onClick={() => { handler({bgcolor: '#002089', completed: 0}) }}
             >
               Volver
             </Button>
