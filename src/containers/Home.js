@@ -1,20 +1,11 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import LoginForm from '../components/LoginForm/LoginForm';
+import CenteredBox from '../components/CenteredBox';
 
 const Home = () => (
-  <Container className="d-flex grow-1">
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      className="centered-box-container grow-1"
-    >
-      <LoginForm />
-    </Box>
-  </Container>
+  <CenteredBox>
+    <LoginForm />
+  </CenteredBox>
 );
 
 export default Home;
