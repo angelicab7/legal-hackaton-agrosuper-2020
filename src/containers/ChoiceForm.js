@@ -10,6 +10,7 @@ import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
 import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 import CenteredBox from '../components/CenteredBox';
+import Footer from '../components/Footer'
 
 const ChoicesForm = () => {
   const [answers, setAnswers] = useState({});
@@ -94,6 +95,7 @@ const ChoicesForm = () => {
           </Switch>
         </CardContent>
       </Card>
+      <Footer/>
     </CenteredBox>
   );
 };
