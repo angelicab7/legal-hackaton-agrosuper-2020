@@ -57,15 +57,15 @@ const PlazoTarifa = () => {
         </div>
         <div className="renovacion">
             <div className="boxTwo">
-                <TextField
-                    name="Renovacion"
-                    label="Renovación"
-                    variant="outlined"
-                    inputRef={register}
-                    required
-                    fullWidth
-                    className="test"
-                />
+                <FormControl variant="outlined" className="typeFault" required>
+                    <InputLabel id="tipoFalta">
+                        Renovación
+                    </InputLabel>
+                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                        <MenuItem value={true}>Si</MenuItem>
+                        <MenuItem value={false}>No</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
             <div className="boxTwo">
                 <FormControl variant="outlined" className="typeFault" required>

@@ -6,11 +6,16 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  
 }
 
 .servicesLvl{
-  margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.servicesLv2{
+  margin-bottom: 20px;
+  margin-top: 20px;;
 }
 
 .typeFault{
@@ -60,3 +65,43 @@
   line-height: 3em;
   border-radius: 10px;
 }
+
+.containerFaults{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.hechoDiv{
+  display: flex;
+  flex: 1;
+  margin-left: 5px;
+}
+
+.tipoDiv{
+  display: flex;
+  flex: .6;
+  margin-left: 5px;
+}
+
+.fileServi{
+  margin-bottom: 30px;
+    margin-left: 10px;
+  
+}
+
+.fileDiv{
+  display: flex;
+  flex: .3;
+  margin-left: 5px;
+}
+
+.montoDiv{
+  display: flex;
+  flex: .5;
+}
+
+.fileButton{
+  height: 55px;
+}
+
