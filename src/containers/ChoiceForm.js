@@ -24,7 +24,7 @@ const ChoicesForm = () => {
   console.log(answers);
 
   return (
-    <CenteredBox>
+    <CenteredBox className="margin-y-two">
       <Card className="w100" variant="outlined">
         <CardContent>
           <Switch>
@@ -39,11 +39,15 @@ const ChoicesForm = () => {
             />
             <Route
               path="/preguntas/contratistas"
-              render={() => <ContractorsForm />}
+              render={(props) => (
+                <ContractorsForm {...props} onNext={onNextDependencySelector} />
+              )}
             />
             <Route
               path="/preguntas/servicios"
-              render={() => <ServicesForm />}
+              render={(props) => (
+                <ServicesForm {...props} onNext={onNextDependencySelector} />
+              )}
             />
             <Route path="/preguntas/otras" render={() => <RegulationsForm />} />
             <Route
