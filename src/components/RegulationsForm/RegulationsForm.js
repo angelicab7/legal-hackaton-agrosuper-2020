@@ -12,12 +12,21 @@ import {
   Typography,
   Grid,
 } from '@material-ui/core';
+import ProgressBar from '../ProgressBar';
 
 const RegulationsForm = ({ onNext }) => {
   const { register, handleSubmit, control } = useForm();
+  const testData = [{ bgcolor: '#002089', completed: 80 }];
 
   return (
     <>
+      {testData.map((item) => (
+        <ProgressBar
+          key={item.id}
+          bgcolor={item.bgcolor}
+          completed={item.completed}
+        />
+      ))}
       <Typography
         variant="h3"
         component="h1"
