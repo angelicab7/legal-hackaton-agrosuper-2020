@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 import ProgressBar from '../ProgressBar';
 
-const ServicesForm = ({ onNext }) => {
+const ServicesForm = ({ onNext, handler }) => {
   const { register, handleSubmit } = useForm();
 
   // Function to handle event onChange of input file
@@ -38,19 +38,11 @@ const ServicesForm = ({ onNext }) => {
       };
     });
 
-  const testData = [{ bgcolor: '#002089', completed: 40 }];
 
   // };
 
   return (
     <>
-      {testData.map((item) => (
-        <ProgressBar
-          key={item.id}
-          bgcolor={item.bgcolor}
-          completed={item.completed}
-        />
-      ))}
       <Typography
         variant="h3"
         component="h1"
@@ -162,6 +154,7 @@ const ServicesForm = ({ onNext }) => {
             variant="contained"
             color="secondary"
             type="submit"
+            onClick={() => { handler({bgcolor: '#002089', completed: 20}) }}
           >
             Anterior
           </Button>
