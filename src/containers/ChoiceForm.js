@@ -109,7 +109,7 @@ const ChoicesForm = () => {
             />
             <Route
               path="/preguntas/finalize"
-              render={(props) => <Finalize {...props} onNext={onNextOtras} />}
+              render={(props) => <Finalize {...props} onNext={onNextOtras} handler={setTest}/>}
             />
           </Switch>
         </CardContent>
