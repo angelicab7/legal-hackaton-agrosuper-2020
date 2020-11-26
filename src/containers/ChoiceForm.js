@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
+import firebase from 'firebase/app';
 import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
@@ -17,6 +18,7 @@ import ProgressBar from '../components/ProgressBar';
 
 const ChoicesForm = () => {
   const [answers, setAnswers] = useState({});
+  const [sendData, setSendData] = useState(false);
   const { push } = useHistory();
   const [testData, setTest] = useState({ bgcolor: '#002089', completed: 0 })
 
@@ -50,10 +52,38 @@ const ChoicesForm = () => {
     push('/preguntas/otras');
   };
 
-  const onNextOtras = (data) => {
+  const onNextOtras = async (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
     push('/preguntas/finalize');
+    setSendData(true);
   };
+
+  // Guarda la fecha en la que es creada la solicitud
+  const currentDate = () => {
+    let date = new Date();
+    const day = date.getDate();
+    const month = (date.getMonth() < 10 ? '0' : '') + (date.getMonth() + 1);
+    const year = date.getFullYear();
+    date = `${year}/${month}/${day}`;
+    return date;
+  };
+
+  const sendDataToFirebase = async () => {
+    const db = firebase.firestore();
+    await db
+      .collection('pedidos')
+      .doc()
+      .set({
+        date: currentDate(),
+        ...answers,
+      });
+  };
+
+  useEffect(() => {
+    if (sendData) {
+      sendDataToFirebase();
+    }
+  }, [answers, sendData]);
 
   // eslint-disable-next-line no-console
   console.log(answers);
