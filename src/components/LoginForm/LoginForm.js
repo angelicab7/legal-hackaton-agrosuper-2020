@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -7,6 +8,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Box from '@material-ui/core/Box';
 import firebase from 'firebase/app';
 
+// Components
+import withAuth from '../Auth/withAuth';
 import microsoftSignInLogo from '../../assets/images/ms-symbollockup_signin_dark.svg';
 
 const provider = new firebase.auth.OAuthProvider('microsoft.com');
@@ -18,7 +21,7 @@ provider.setCustomParameters({
   redirect_uri: 'http://localhost:8080',
 });
 
-const LoginForm = () => {
+const LoginForm = ({ isAuthenticated }) => {
   const onMicrosoftLogin = () => {
     firebase
       .auth()
@@ -30,6 +33,10 @@ const LoginForm = () => {
         console.log(error);
       });
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/user" />;
+  }
 
   return (
     <Card className="w100">
@@ -61,4 +68,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default withAuth(LoginForm);
