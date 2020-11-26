@@ -18,25 +18,6 @@ const RegulationsForm = ({ onNext }) => {
   const { register, handleSubmit, control } = useForm();
   const testData = [{ bgcolor: '#002089', completed: 80 }];
 
-  // const [open, setOpen] = React.useState(false);
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
-  // const bodyModal = (
-  //   <div>
-  //     <h2 id="simple-modal-title">Text in a modal</h2>
-  //     <p id="simple-modal-description">
-  //       Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-  //     </p>
-  //   </div>
-  // );
-
   return (
     <>
       {testData.map((item) => (
@@ -230,14 +211,6 @@ const RegulationsForm = ({ onNext }) => {
             Siguiente
           </Button>
         </Box>
-        {/* <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-          >
-            {bodyModal}
-          </Modal> */}
       </form>
     </>
   );

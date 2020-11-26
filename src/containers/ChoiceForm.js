@@ -9,6 +9,7 @@ import DependencySelector from '../components/ChoiceForm/DependencySelector';
 import ServicesFaults from '../components/ChoiceForm/ServicesFaults';
 import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
+import Finalize from '../components/FinalizeForm/Finalize';
 import CenteredBox from '../components/CenteredBox';
 
 const ChoicesForm = () => {
@@ -42,6 +43,7 @@ const ChoicesForm = () => {
 
   const onNextOtras = (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
+    push('/preguntas/finalize');
   };
 
   // eslint-disable-next-line no-console
@@ -90,6 +92,10 @@ const ChoicesForm = () => {
               render={(props) => (
                 <RegulationsForm {...props} onNext={onNextOtras} />
               )}
+            />
+            <Route
+              path="/preguntas/finalize"
+              render={(props) => <Finalize {...props} onNext={onNextOtras} />}
             />
           </Switch>
         </CardContent>
