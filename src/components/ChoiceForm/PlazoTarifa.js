@@ -10,12 +10,21 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import ProgressBar from '../ProgressBar';
 
 const PlazoTarifa = ({ onNext }) => {
   const { register, handleSubmit, control } = useForm();
+  const testData = [{ bgcolor: '#002089', completed: 80 }];
 
   return (
     <>
+      {testData.map((item) => (
+        <ProgressBar
+          key={item.id}
+          bgcolor={item.bgcolor}
+          completed={item.completed}
+        />
+      ))}
       <Typography
         variant="h3"
         component="h1"
