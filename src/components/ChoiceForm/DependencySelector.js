@@ -64,8 +64,14 @@ const DependencySelector = ({ onNext }) => {
                 <MenuItem value="PRODUCCION_ANIMAL">Producción Animal</MenuItem>
                 <MenuItem value="INDUSTRIAL">Industrial</MenuItem>
                 <MenuItem value="TI">TI</MenuItem>
-                <MenuItem value="INNOVACION">
-                  Innovación (Industrial, Producción Animal, Corporativo)
+                <MenuItem value="INNOVACION_INDUSTRIAL">
+                  Innovación Industrial
+                </MenuItem>
+                <MenuItem value="INNOVACION_PRODANIMAL">
+                  Innovación Producción Animal
+                </MenuItem>
+                <MenuItem value="INNOVACION_CORPORATIVO">
+                  Innovación Corporativo
                 </MenuItem>
                 <MenuItem value="PLANTAS_ALIMENTOS">
                   Plantas de Alimentos
