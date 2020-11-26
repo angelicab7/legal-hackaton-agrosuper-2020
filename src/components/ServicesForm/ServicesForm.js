@@ -10,12 +10,37 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 // import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
+// import { reject } from 'core-js/fn/promise';
 
 const ServicesForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
 
-  // const onSubmit = (data) => {
-  //   console.log(data);
+  // Function to handle event onChange of input file
+  const uploadFile = async (e) => {
+    // console.log('estoy escuchando');
+    // console.log(e.target.files);
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    console.log(base64);
+    register(base64);
+  };
+
+  // Function to convert base 64
+
+  const convertBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = () => {
+        reject(error);
+      };
+    });
+
   // };
 
   return (
@@ -29,7 +54,7 @@ const ServicesForm = ({ onNext }) => {
         >
           Detalles Servicios
         </Typography>
-        <form onSubmit={handleSubmit(onNext)}>
+        <form onSubmit={handleSubmit(onNext)} encType="multipart/form-data">
           <InputLabel id="demo-simple-select-label">
             Objetos Servicios
           </InputLabel>
@@ -59,12 +84,16 @@ const ServicesForm = ({ onNext }) => {
           </InputLabel>
           <TextField
             name="propuestaServicios"
-            type="field"
+            type="file"
+            id="docpdf"
             variant="outlined"
             inputRef={register}
             required
             fullWidth
             className="margin-b-one"
+            onChange={(e) => {
+              uploadFile(e);
+            }}
           />
           <InputLabel id="demo-simple-select-label">
             Área destinada a los Servicios

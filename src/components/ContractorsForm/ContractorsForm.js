@@ -10,9 +10,31 @@ import { useForm } from 'react-hook-form';
 const ContractorsForm = ({ onNext }) => {
   const { register, handleSubmit } = useForm();
 
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  // };
+  // Function to handle event onChange of input file
+  const uploadFile = async (e) => {
+    // console.log('estoy escuchando');
+    // console.log(e.target.files);
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    console.log(base64);
+    register(base64);
+  };
+
+  // Function to convert base 64
+
+  const convertBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = () => {
+        reject(error);
+      };
+    });
 
   return (
     <Card className="w100">
@@ -85,11 +107,15 @@ const ContractorsForm = ({ onNext }) => {
           <TextField
             name="personeria"
             type="file"
+            id="docpdf"
             variant="outlined"
-            inputRef={register}
+            inputRef={register(uploadFile)}
             required
             fullWidth
             className="margin-b-one"
+            onChange={(e) => {
+              uploadFile(e);
+            }}
           />
           <div className="bottomBox">
             <div className="boxOne">
