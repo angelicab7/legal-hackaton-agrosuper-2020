@@ -13,7 +13,6 @@ import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 import Finalize from '../components/FinalizeForm/Finalize';
 import CenteredBox from '../components/CenteredBox';
-import Footer from '../components/Footer';
 import ProgressBar from '../components/ProgressBar';
 
 const ChoicesForm = () => {
@@ -194,7 +193,6 @@ const ChoicesForm = () => {
           </Switch>
         </CardContent>
       </Card>
-      <Footer />
     </CenteredBox>
   );
 };
