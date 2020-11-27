@@ -36,13 +36,19 @@ const DependencySelector = ({ onNext }) => {
                 required
                 label="¿Qué tipo de solicitud deseas realizar?"
               >
-                <MenuItem value="FISCALIZACIONES">Fiscalizaciones</MenuItem>
+                <MenuItem value="FISCALIZACIONES" disabled>
+                  Fiscalizaciones
+                </MenuItem>
                 <MenuItem value="CONTRATOS">Contratos</MenuItem>
-                <MenuItem value="CARTA_FINIQUITO">
+                <MenuItem value="CARTA_FINIQUITO" disabled>
                   Carta de termino o finiquito
                 </MenuItem>
-                <MenuItem value="PODERES">Poderes</MenuItem>
-                <MenuItem value="OTROS">Otros requerimientos </MenuItem>
+                <MenuItem value="PODERES" disabled>
+                  Poderes
+                </MenuItem>
+                <MenuItem value="OTROS" disabled>
+                  Otros requerimientos
+                </MenuItem>
               </Select>
             }
             name="serviceType"
