@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import { LinkSharp } from '@material-ui/icons';
+
 const SelectUser = () => (
   <Container>
     <Card className="w100">
