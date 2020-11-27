@@ -94,6 +94,20 @@ const PlazoTarifa = ({ onNext, handler }) => {
             </FormControl>
           </Grid>
           <Grid item xs={12}>
+            <InputLabel>Tarifa de los servicios</InputLabel>
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              name="tarifaServicios"
+              label="Monto(UF)"
+              variant="outlined"
+              inputRef={register}
+              type="number"
+              required
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
             <InputLabel>¿Contratista requiere hacer inversiones?</InputLabel>
           </Grid>
           <Grid item xs={12} md={4}>
