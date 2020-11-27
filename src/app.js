@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 // Components
 import AuthContext from './components/Auth/AuthContext';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import Home from './containers/Home';
 import SelectUser from './containers/SelectUserView';
 import NotFoundPage from './containers/NotFound';
@@ -95,6 +96,7 @@ class App extends Component {
               <Route component={NotFoundPage} />
             </Switch>
           </Box>
+          <Footer />
         </Box>
       </AuthContext.Provider>
     );
