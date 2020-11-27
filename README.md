@@ -1,6 +1,5 @@
 <img src="./src/assets/images/logo-header.svg" width=200>
 <br />
-<br />
 
 ## RETO LEGAL HACKATHON- AGROSUPER
 ### DEFINICIÓN DEL PRODUCTO
