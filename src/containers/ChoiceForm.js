@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
@@ -13,7 +13,6 @@ import PlazoTarifa from '../components/ChoiceForm/PlazoTarifa';
 import RegulationsForm from '../components/RegulationsForm/RegulationsForm';
 import Finalize from '../components/FinalizeForm/Finalize';
 import CenteredBox from '../components/CenteredBox';
-import Footer from '../components/Footer';
 import ProgressBar from '../components/ProgressBar';
 
 const ChoicesForm = () => {
@@ -21,9 +20,14 @@ const ChoicesForm = () => {
   const [sendData, setSendData] = useState(false);
   const { push } = useHistory();
   const [testData, setTest] = useState({ bgcolor: '#002089', completed: 0 });
-  const frmContrato = { id_solicitud: '001 ' };
-  const [contract, setContract] = useState(frmContrato);
+  const [documentId, setDocumentId] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    setDocumentId(db.collection('pedidos').doc().id);
+  }, []);
 
   const onNextDependencySelector = (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
@@ -71,24 +75,27 @@ const ChoicesForm = () => {
     return date;
   };
 
-  const sendDataToFirebase = async () => {
+  const sendDataToFirebase = useCallback(async () => {
     const db = firebase.firestore();
+    const user = firebase.auth().currentUser;
     await db
       .collection('pedidos')
-      .doc()
+      .doc(documentId)
       .set({
         date: currentDate(),
+        userRequest: user.displayName,
+        userEmail: user.email,
         ...answers,
       });
-  };
+  }, [answers, documentId]);
 
-  const sendEmailCliente = () => {
+  const sendEmailCliente = useCallback(() => {
     emailjs
       .send(
         'default_service',
         'template_r1wow8m',
         {
-          id_solicitud: contract.id_solicitud,
+          id_solicitud: documentId,
         },
 
         'user_MNiKynjQh7oIXGtmHlZiO',
@@ -96,21 +103,20 @@ const ChoicesForm = () => {
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          setContract(frmContrato);
           setShowMessage(true);
         },
         (err) => {
           console.log('FAILED...', err);
         },
       );
-  };
+  }, [documentId]);
 
   useEffect(() => {
     if (sendData) {
       sendDataToFirebase();
       sendEmailCliente();
     }
-  }, [answers, sendData]);
+  }, [answers, sendData, sendDataToFirebase, sendEmailCliente]);
 
   // eslint-disable-next-line no-console
   console.log(answers);
@@ -193,7 +199,6 @@ const ChoicesForm = () => {
           </Switch>
         </CardContent>
       </Card>
-      <Footer />
     </CenteredBox>
   );
 };

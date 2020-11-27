@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 
-const FinalizeForm = ({handler}) => (
+const FinalizeForm = ({ handler }) => (
   <>
     <Typography
       variant="h3"
@@ -38,7 +38,9 @@ const FinalizeForm = ({handler}) => (
         variant="contained"
         color="primary"
         type="submit"
-        onClick={() => { handler({bgcolor: '#002089', completed: 0}) }}
+        onClick={() => {
+          handler({ bgcolor: '#002089', completed: 0 });
+        }}
       >
         Volver al inicio
       </Button>

@@ -10,7 +10,6 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import ProgressBar from '../ProgressBar';
 
 const PlazoTarifa = ({ onNext, handler }) => {
   const { register, handleSubmit, control } = useForm();
@@ -58,13 +57,18 @@ const PlazoTarifa = ({ onNext, handler }) => {
           </Grid>
           <Grid item xs={12} md={6}>
             <FormControl variant="outlined" className="typeFault" required>
-                <InputLabel id="tipoFalta">
-                    Renovación
-                </InputLabel>
-                <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                    <MenuItem value={true}>Si</MenuItem>
+              <InputLabel id="tipoFalta">Renovación</InputLabel>
+              <Controller
+                name="renovacion"
+                control={control}
+                defaultValue=""
+                as={
+                  <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                    <MenuItem value>Si</MenuItem>
                     <MenuItem value={false}>No</MenuItem>
-                </Select>
+                  </Select>
+                }
+              />
             </FormControl>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -218,7 +222,9 @@ const PlazoTarifa = ({ onNext, handler }) => {
             variant="contained"
             color="secondary"
             type="submit"
-            onClick={() => { handler({bgcolor: '#002089', completed: 60}) }}
+            onClick={() => {
+              handler({ bgcolor: '#002089', completed: 60 });
+            }}
           >
             Anterior
           </Button>
