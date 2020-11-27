@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
-import Grid from '@material-ui/core/Grid';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
 // import ProgressBar from '../ProgressBar';
@@ -63,11 +63,10 @@ const ServicesForm = ({ onNext, handler }) => {
         />
         <TextField
           name="descripcionServicios"
-          label="Descripción de los Servicios"
+          label="Describe o adjunta el servicio"
           type="text"
           variant="outlined"
           inputRef={register}
-          required
           fullWidth
           className="margin-b-one"
         />
@@ -106,7 +105,17 @@ const ServicesForm = ({ onNext, handler }) => {
           fullWidth
           className="margin-b-one"
         />
-        <Grid container spacing={2}>
+        <TextField
+          name="diasHorariosServicios"
+          label="Días y Horarios de prestación de servicios"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        {/* <Grid container spacing={2}>
           <Grid item xs={12}>
             <InputLabel>Fecha de prestación del servicio:</InputLabel>
           </Grid>
@@ -140,7 +149,7 @@ const ServicesForm = ({ onNext, handler }) => {
               required
             />
           </Grid>
-        </Grid>
+        </Grid> */}
         <Box
           display="flex"
           justifyContent="space-around"

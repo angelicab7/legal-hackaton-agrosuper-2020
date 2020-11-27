@@ -38,7 +38,6 @@ const ServicesFaults = ({ onNext, handler }) => {
           inputRef={register}
           multiline
           rows={4}
-          required
           fullWidth
           className="servicesLv2"
         />
