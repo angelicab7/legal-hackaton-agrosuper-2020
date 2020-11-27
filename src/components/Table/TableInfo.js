@@ -43,13 +43,13 @@ export default function TableInfo() {
           <CircularProgress fontSize="large" />
         </Box>
       ) : (
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={10}
-          checkboxSelection
-        />
-      )}
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={10}
+            checkboxSelection
+          />
+        )}
     </div>
   );
 }
