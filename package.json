@@ -59,7 +59,11 @@
     "build": "webpack --config=webpack/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --config=webpack/webpack.dev.js",
-    "start:prod": "npm run build && serve dist --single"
+    "start:prod": "npm run build && serve dist --single",
+    "lint": "npm run lint:js",
+    "lint:fix": "npm run lint:js -- --fix",
+    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals",
+    "lint:js": "npm run lint:eslint -- . --ext .js,.jsx"
   },
   "repository": {
     "type": "git",

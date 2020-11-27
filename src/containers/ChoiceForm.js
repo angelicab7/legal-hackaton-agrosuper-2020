@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
@@ -21,8 +21,9 @@ const ChoicesForm = () => {
   const [sendData, setSendData] = useState(false);
   const { push } = useHistory();
   const [testData, setTest] = useState({ bgcolor: '#002089', completed: 0 });
-  const frmContrato = { id_solicitud: '001 ' };
+  const frmContrato = useMemo(() => ({ id_solicitud: '001 ' }), []);
   const [contract, setContract] = useState(frmContrato);
+  // eslint-disable-next-line no-unused-vars
   const [showMessage, setShowMessage] = useState(false);
 
   const onNextDependencySelector = (data) => {
@@ -71,7 +72,7 @@ const ChoicesForm = () => {
     return date;
   };
 
-  const sendDataToFirebase = async () => {
+  const sendDataToFirebase = useCallback(async () => {
     const db = firebase.firestore();
     await db
       .collection('pedidos')
@@ -80,9 +81,9 @@ const ChoicesForm = () => {
         date: currentDate(),
         ...answers,
       });
-  };
+  }, [answers]);
 
-  const sendEmailCliente = () => {
+  const sendEmailCliente = useCallback(() => {
     emailjs
       .send(
         'default_service',
@@ -103,14 +104,14 @@ const ChoicesForm = () => {
           console.log('FAILED...', err);
         },
       );
-  };
+  }, [contract.id_solicitud, frmContrato]);
 
   useEffect(() => {
     if (sendData) {
       sendDataToFirebase();
       sendEmailCliente();
     }
-  }, [answers, sendData]);
+  }, [answers, sendData, sendDataToFirebase, sendEmailCliente]);
 
   // eslint-disable-next-line no-console
   console.log(answers);
