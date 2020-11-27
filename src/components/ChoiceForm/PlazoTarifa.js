@@ -61,10 +61,16 @@ const PlazoTarifa = ({ onNext, handler }) => {
                 <InputLabel id="tipoFalta">
                     Renovación
                 </InputLabel>
-                <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
-                    <MenuItem value={true}>Si</MenuItem>
-                    <MenuItem value={false}>No</MenuItem>
-                </Select>
+                <Controller
+                    name="renovacion"
+                    control={control}
+                    defaultValue=""
+                    as={
+                    <Select labelId="tipo-falta-label" id="tipoFaltaSelect">
+                        <MenuItem value={true}>Si</MenuItem>
+                        <MenuItem value={false}>No</MenuItem>
+                    </Select>
+                }/>
             </FormControl>
           </Grid>
           <Grid item xs={12} md={6}>
