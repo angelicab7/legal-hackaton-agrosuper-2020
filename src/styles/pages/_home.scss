@@ -127,9 +127,6 @@
 
 .footer{
   margin-top: 1rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -150,8 +147,4 @@
   ;
   display: flex;
   height: 15px;
-}
-
-.w100{
-  margin-bottom: 40px;
 }
