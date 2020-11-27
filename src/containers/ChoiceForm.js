@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import firebase from 'firebase/app';
+import emailjs from 'emailjs-com';
 import ContractorsForm from '../components/ContractorsForm/ContractorsForm';
 import ServicesForm from '../components/ServicesForm/ServicesForm';
 // Components
@@ -20,6 +21,9 @@ const ChoicesForm = () => {
   const [sendData, setSendData] = useState(false);
   const { push } = useHistory();
   const [testData, setTest] = useState({ bgcolor: '#002089', completed: 0 });
+  const frmContrato = { id_solicitud: '001 ' };
+  const [contract, setContract] = useState(frmContrato);
+  const [showMessage, setShowMessage] = useState(false);
 
   const onNextDependencySelector = (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
@@ -78,9 +82,33 @@ const ChoicesForm = () => {
       });
   };
 
+  const sendEmailCliente = () => {
+    emailjs
+      .send(
+        'default_service',
+        'template_r1wow8m',
+        {
+          id_solicitud: contract.id_solicitud,
+        },
+
+        'user_MNiKynjQh7oIXGtmHlZiO',
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setContract(frmContrato);
+          setShowMessage(true);
+        },
+        (err) => {
+          console.log('FAILED...', err);
+        },
+      );
+  };
+
   useEffect(() => {
     if (sendData) {
       sendDataToFirebase();
+      sendEmailCliente();
     }
   }, [answers, sendData]);
 

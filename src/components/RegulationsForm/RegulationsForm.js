@@ -12,7 +12,7 @@ import {
   Typography,
   Grid,
 } from '@material-ui/core';
-import ProgressBar from '../ProgressBar';
+// import ProgressBar from '../ProgressBar';
 
 const RegulationsForm = ({ onNext, handler }) => {
   const { register, handleSubmit, control } = useForm();
@@ -196,12 +196,14 @@ const RegulationsForm = ({ onNext, handler }) => {
             variant="contained"
             color="secondary"
             type="submit"
-            onClick={() => { handler({bgcolor: '#002089', completed: 80}) }}
+            onClick={() => {
+              handler({ bgcolor: '#002089', completed: 80 });
+            }}
           >
             Anterior
           </Button>
           <Button variant="contained" color="primary" type="submit">
-            Siguiente
+            Enviar
           </Button>
         </Box>
       </form>

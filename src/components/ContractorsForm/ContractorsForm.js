@@ -10,30 +10,30 @@ const ContractorsForm = ({ onNext, handler }) => {
   const { register, handleSubmit } = useForm();
 
   // Function to handle event onChange of input file
-  const uploadFile = async (e) => {
-    // console.log('estoy escuchando');
-    // console.log(e.target.files);
-    const file = e.target.files[0];
-    const base64 = await convertBase64(file);
-    console.log(base64);
-    register(base64);
-  };
+  // const uploadFile = async (e) => {
+  //   // console.log('estoy escuchando');
+  //   // console.log(e.target.files);
+  //   const file = e.target.files[0];
+  //   const base64 = await convertBase64(file);
+  //   console.log(base64);
+  //   register(base64);
+  // };
 
   // Function to convert base 64
 
-  const convertBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
+  // const convertBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const fileReader = new FileReader();
+  //     fileReader.readAsDataURL(file);
 
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
+  //     fileReader.onload = () => {
+  //       resolve(fileReader.result);
+  //     };
 
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
+  //     fileReader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //   });
 
   return (
     <>

@@ -39,12 +39,16 @@ const DependencySelector = ({ onNext }) => {
                 <MenuItem value="FISCALIZACIONES" disabled>
                   Fiscalizaciones
                 </MenuItem>
-                <MenuItem value="CONTRATOS" >Contratos</MenuItem>
+                <MenuItem value="CONTRATOS">Contratos</MenuItem>
                 <MenuItem value="CARTA_FINIQUITO" disabled>
                   Carta de termino o finiquito
                 </MenuItem>
-                <MenuItem value="PODERES" disabled>Poderes</MenuItem>
-                <MenuItem value="OTROS" disabled>Otros requerimientos </MenuItem>
+                <MenuItem value="PODERES" disabled>
+                  Poderes
+                </MenuItem>
+                <MenuItem value="OTROS" disabled>
+                  Otros requerimientos
+                </MenuItem>
               </Select>
             }
             name="serviceType"
@@ -63,36 +67,50 @@ const DependencySelector = ({ onNext }) => {
                 required
                 label="Por favor, ingresa el área de servicio al que perteneces"
               >
-                <MenuItem value="PRODUCCION_ANIMAL">Producción Animal</MenuItem>
-                <MenuItem value="INDUSTRIAL">Industrial</MenuItem>
-                <MenuItem value="TI">TI</MenuItem>
-                <MenuItem value="INNOVACION_INDUSTRIAL">
+                <MenuItem value="PRODUCCION_ANIMAL,smarinv@agrosuper.com">
+                  Producción Animal
+                </MenuItem>
+                <MenuItem value="INDUSTRIAL,mmanubens@agrosuper.com">
+                  Industrial
+                </MenuItem>
+                <MenuItem value="TI,mmanubens@agrosuper.com">TI</MenuItem>
+                <MenuItem value="INNOVACION_INDUSTRIAL,mmanubens@agrosuper.com">
                   Innovación Industrial
                 </MenuItem>
-                <MenuItem value="INNOVACION_PRODANIMAL">
+                <MenuItem value="INNOVACION_PRODANIMAL,smarinv@agrosuper.com">
                   Innovación Producción Animal
                 </MenuItem>
-                <MenuItem value="INNOVACION_CORPORATIVO">
+                <MenuItem value="INNOVACION_CORPORATIVO,mmanubens@agrosuper.com">
                   Innovación Corporativo
                 </MenuItem>
-                <MenuItem value="PLANTAS_ALIMENTOS">
+                <MenuItem value="PLANTAS_ALIMENTOS,smarinv@agrosuper.com">
                   Plantas de Alimentos
                 </MenuItem>
-                <MenuItem value="REOLACIONES_COMUNITARIAS">
+                <MenuItem value="RELACIONES_COMUNITARIAS,mmanubens@agrosuper.com">
                   Relaciones comunitarias
                 </MenuItem>
-                <MenuItem value="SUSTENTABILIDAD">Sustentabilidad</MenuItem>
-                <MenuItem value="ADQUISICIONES">Adquisiciones</MenuItem>
-                <MenuItem value="FINANZAS">Finanzas</MenuItem>
-                <MenuItem value="SUCURSALES">Sucursales</MenuItem>
-                <MenuItem value="CADENA_SUMINISTRO">
+                <MenuItem value="SUSTENTABILIDAD,smarinv@agrosuper.com">
+                  Sustentabilidad
+                </MenuItem>
+                <MenuItem value="ADQUISICIONES,mmanubens@agrosuper.com">
+                  Adquisiciones
+                </MenuItem>
+                <MenuItem value="FINANZAS,mmanubens@agrosuper.com">
+                  Finanzas
+                </MenuItem>
+                <MenuItem value="SUCURSALES,smarinv@agrosuper.com">
+                  Sucursales
+                </MenuItem>
+                <MenuItem value="CADENA_SUMINISTRO,mmanubens@agrosuper.com">
                   Cadena de suministro
                 </MenuItem>
-                <MenuItem value="OFICINAS_INTERNACIONALES">
+                <MenuItem value="OFICINAS_INTERNACIONALES,mmanubens@agrosuper.com">
                   Oficinas internacionales
                 </MenuItem>
-                <MenuItem value="MAQUILA">Maquila</MenuItem>
-                <MenuItem value="OTROS">Otros</MenuItem>
+                <MenuItem value="MAQUILA,mmanubens@agrosuper.com">
+                  Maquila
+                </MenuItem>
+                <MenuItem value="OTROS,fiscalia@agrosuper">Otros</MenuItem>
               </Select>
             }
             name="dependencyType"
