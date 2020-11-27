@@ -42,7 +42,7 @@ const SelectUser = () => (
             fullWidth
             className="buttonUsers"
           >
-            Cliente
+            Cliente interno
           </Button>
         </Box>
       </CardContent>
