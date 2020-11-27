@@ -61,6 +61,10 @@ const ChoicesForm = () => {
     setSendData(true);
   };
 
+  var user = firebase.auth().currentUser;
+
+  //console.log(user.email)
+
   // Guarda la fecha en la que es creada la solicitud
   const currentDate = () => {
     let date = new Date();
@@ -78,6 +82,8 @@ const ChoicesForm = () => {
       .doc()
       .set({
         date: currentDate(),
+        userRequest: user.displayName,
+        userEmail: user.email,
         ...answers,
       });
   };
