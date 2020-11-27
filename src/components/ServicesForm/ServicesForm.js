@@ -7,37 +7,36 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { useForm } from 'react-hook-form';
-import ProgressBar from '../ProgressBar';
+// import ProgressBar from '../ProgressBar';
 
 const ServicesForm = ({ onNext, handler }) => {
   const { register, handleSubmit } = useForm();
 
   // Function to handle event onChange of input file
-  const uploadFile = async (e) => {
-    // console.log('estoy escuchando');
-    // console.log(e.target.files);
-    const file = e.target.files[0];
-    const base64 = await convertBase64(file);
-    console.log(base64);
-    register(base64);
-  };
+  // const uploadFile = async (e) => {
+  //   // console.log('estoy escuchando');
+  //   // console.log(e.target.files);
+  //   const file = e.target.files[0];
+  //   const base64 = await convertBase64(file);
+  //   console.log(base64);
+  //   register(base64);
+  // };
 
   // Function to convert base 64
 
-  const convertBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
+  // const convertBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const fileReader = new FileReader();
+  //     fileReader.readAsDataURL(file);
 
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
+  //     fileReader.onload = () => {
+  //       resolve(fileReader.result);
+  //     };
 
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-
+  //     fileReader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //   });
 
   // };
 
@@ -79,13 +78,13 @@ const ServicesForm = ({ onNext, handler }) => {
           type="file"
           id="docpdf"
           variant="outlined"
-          inputRef={register}
-          required
+          // inputRef={register}
+          // required
           fullWidth
           className="margin-b-one"
-          onChange={(e) => {
-            uploadFile(e);
-          }}
+          // onChange={(e) => {
+          //   uploadFile(e);
+          // }}
         />
         <TextField
           name="areaServicios"
@@ -154,7 +153,9 @@ const ServicesForm = ({ onNext, handler }) => {
             variant="contained"
             color="secondary"
             type="submit"
-            onClick={() => { handler({bgcolor: '#002089', completed: 20}) }}
+            onClick={() => {
+              handler({ bgcolor: '#002089', completed: 20 });
+            }}
           >
             Anterior
           </Button>

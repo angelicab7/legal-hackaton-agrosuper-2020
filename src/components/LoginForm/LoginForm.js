@@ -17,14 +17,12 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 // const provider = new firebase.auth.OAuthProvider('microsoft.com');
 
-/*
-provider.setCustomParameters({
-  client_id: '78185eca-50e2-4cf9-98e0-4b24232d7323',
-  response_type: 'code',
-  tenant: '5070d741-c777-43a7-b7cf-46e42f66723e',
-  redirect_uri: 'http://localhost:8080',
-});
-*/
+// provider.setCustomParameters({
+//   client_id: '78185eca-50e2-4cf9-98e0-4b24232d7323',
+//   response_type: 'code',
+//   tenant: '5070d741-c777-43a7-b7cf-46e42f66723e',
+//   redirect_uri: 'http://localhost:8080',
+// });
 
 const LoginForm = ({ isAuthenticated }) => {
   const [isLoading, setIsLoading] = useState(false);

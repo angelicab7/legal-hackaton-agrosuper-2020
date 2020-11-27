@@ -4,37 +4,36 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { useForm } from 'react-hook-form';
-import ProgressBar from '../ProgressBar';
+// import ProgressBar from '../ProgressBar';
 
 const ContractorsForm = ({ onNext, handler }) => {
   const { register, handleSubmit } = useForm();
 
   // Function to handle event onChange of input file
-  const uploadFile = async (e) => {
-    // console.log('estoy escuchando');
-    // console.log(e.target.files);
-    const file = e.target.files[0];
-    const base64 = await convertBase64(file);
-    console.log(base64);
-    register(base64);
-  };
+  // const uploadFile = async (e) => {
+  //   // console.log('estoy escuchando');
+  //   // console.log(e.target.files);
+  //   const file = e.target.files[0];
+  //   const base64 = await convertBase64(file);
+  //   console.log(base64);
+  //   register(base64);
+  // };
 
   // Function to convert base 64
 
-  const convertBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
+  // const convertBase64 = (file) =>
+  //   new Promise((resolve, reject) => {
+  //     const fileReader = new FileReader();
+  //     fileReader.readAsDataURL(file);
 
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
+  //     fileReader.onload = () => {
+  //       resolve(fileReader.result);
+  //     };
 
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-
+  //     fileReader.onerror = (error) => {
+  //       reject(error);
+  //     };
+  //   });
 
   return (
     <>
@@ -103,13 +102,13 @@ const ContractorsForm = ({ onNext, handler }) => {
           type="file"
           id="docpdf"
           variant="outlined"
-          inputRef={register(uploadFile)}
-          required
+          // inputRef={register(uploadFile)}
+          // required
           fullWidth
           className="margin-b-one"
-          onChange={(e) => {
-            uploadFile(e);
-          }}
+          // onChange={(e) => {
+          //   uploadFile(e);
+          // }}
         />
         <div className="bottomBox">
           <div className="boxOne">
@@ -119,7 +118,9 @@ const ContractorsForm = ({ onNext, handler }) => {
               variant="contained"
               color="secondary"
               type="submit"
-              onClick={() => { handler({bgcolor: '#002089', completed: 0}) }}
+              onClick={() => {
+                handler({ bgcolor: '#002089', completed: 0 });
+              }}
             >
               Volver
             </Button>
