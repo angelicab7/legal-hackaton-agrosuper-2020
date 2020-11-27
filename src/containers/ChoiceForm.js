@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Route, Switch, useHistory } from 'react-router-dom';
@@ -20,10 +20,14 @@ const ChoicesForm = () => {
   const [sendData, setSendData] = useState(false);
   const { push } = useHistory();
   const [testData, setTest] = useState({ bgcolor: '#002089', completed: 0 });
-  const frmContrato = useMemo(() => ({ id_solicitud: '001 ' }), []);
-  const [contract, setContract] = useState(frmContrato);
+  const [documentId, setDocumentId] = useState('');
   // eslint-disable-next-line no-unused-vars
   const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    setDocumentId(db.collection('pedidos').doc().id);
+  }, []);
 
   const onNextDependencySelector = (data) => {
     setAnswers((previousAnswers) => ({ ...previousAnswers, ...data }));
@@ -73,14 +77,17 @@ const ChoicesForm = () => {
 
   const sendDataToFirebase = useCallback(async () => {
     const db = firebase.firestore();
+    const user = firebase.auth().currentUser;
     await db
       .collection('pedidos')
-      .doc()
+      .doc(documentId)
       .set({
         date: currentDate(),
+        userRequest: user.displayName,
+        userEmail: user.email,
         ...answers,
       });
-  }, [answers]);
+  }, [answers, documentId]);
 
   const sendEmailCliente = useCallback(() => {
     emailjs
@@ -88,7 +95,7 @@ const ChoicesForm = () => {
         'default_service',
         'template_r1wow8m',
         {
-          id_solicitud: contract.id_solicitud,
+          id_solicitud: documentId,
         },
 
         'user_MNiKynjQh7oIXGtmHlZiO',
@@ -96,14 +103,13 @@ const ChoicesForm = () => {
       .then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          setContract(frmContrato);
           setShowMessage(true);
         },
         (err) => {
           console.log('FAILED...', err);
         },
       );
-  }, [contract.id_solicitud, frmContrato]);
+  }, [documentId]);
 
   useEffect(() => {
     if (sendData) {
