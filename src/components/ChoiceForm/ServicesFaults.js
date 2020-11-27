@@ -43,12 +43,11 @@ const ServicesFaults = ({ onNext, handler }) => {
           className="servicesLv2"
         />
         <div className="fileServi">
-          <label htmlFor="upload-photo">
-            <input
+          <label htmlFor="archivoNivelServicio">
+            <TextField
               style={{ display: 'none' }}
               id="archivoNivelServicio"
-              name="upload-photo"
-              inputRef={register}
+              name="archivoNivelServicio"
               type="file"
             />
             <Button
@@ -93,12 +92,11 @@ const ServicesFaults = ({ onNext, handler }) => {
             </FormControl>
           </div>
           <div className="fileDiv">
-            <label htmlFor="upload-photo">
-              <input
+            <label htmlFor="fileFalta">
+              <TextField
                 style={{ display: 'none' }}
                 id="fileFalta"
-                inputRef={register}
-                name="upload-photo"
+                name="fileFalta"
                 type="file"
               />
               <Button
@@ -156,12 +154,11 @@ const ServicesFaults = ({ onNext, handler }) => {
               </FormControl>
             </div>
             <div className="fileDiv">
-              <label htmlFor="upload-photo">
-                <input
+              <label htmlFor="fileFalta2">
+                <TextField
                   style={{ display: 'none' }}
                   id="fileFalta2"
-                  inputRef={register}
-                  name="upload-photo"
+                  name="fileFalta2"
                   type="file"
                 />
                 <Button
@@ -220,12 +217,11 @@ const ServicesFaults = ({ onNext, handler }) => {
               </FormControl>
             </div>
             <div className="fileDiv">
-              <label htmlFor="upload-photo">
-                <input
+              <label htmlFor="fileFalta3">
+                <TextField
                   style={{ display: 'none' }}
                   id="fileFalta3"
-                  inputRef={register}
-                  name="upload-photo"
+                  name="fileFalta3"
                   type="file"
                 />
                 <Button
@@ -284,12 +280,11 @@ const ServicesFaults = ({ onNext, handler }) => {
               </FormControl>
             </div>
             <div className="fileDiv">
-              <label htmlFor="upload-photo">
-                <input
+              <label htmlFor="fileFalta2">
+                <TextField
                   style={{ display: 'none' }}
                   id="fileFalta2"
-                  inputRef={register}
-                  name="upload-photo"
+                  name="fileFalta2"
                   type="file"
                 />
                 <Button
