@@ -110,6 +110,26 @@ const ContractorsForm = ({ onNext, handler }) => {
           //   uploadFile(e);
           // }}
         />
+        <TextField
+          name="coordinadoragrosuper"
+          label="Correo Electrónico Coordinador Agrosuper"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
+        <TextField
+          name="coordinadorcontratista"
+          label="Correo Electrónico Coordinador Contratista"
+          type="text"
+          variant="outlined"
+          inputRef={register}
+          required
+          fullWidth
+          className="margin-b-one"
+        />
         <div className="bottomBox">
           <div className="boxOne">
             <Button
